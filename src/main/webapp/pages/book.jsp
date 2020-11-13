@@ -36,16 +36,16 @@
 <s:property value="jsonString"/><br />
 
 
-<%--<s:subset source="jsonObject" count="3">--%>
-<%--    <table border="0" cellspacing="0" cellpadding="1">--%>
-<%--    <s:iterator><tr>--%>
-<%--        <td>--%>
-<%--        <s:property />--%>
-<%--        </td>--%>
-<%--    </tr>--%>
-<%--    </s:iterator>--%>
-<%--    </table>--%>
-<%--</s:subset>--%>
+<s:subset source="jsonObject" count="3">
+    <table border="0" cellspacing="0" cellpadding="1">
+    <s:iterator><tr>
+        <td>
+        <s:property />
+        </td>
+    </tr>
+    </s:iterator>
+    </table>
+</s:subset>
 
 <%--<table border="0" cellspacing="0" cellpadding="1">--%>
 <%--    <tr>--%>
