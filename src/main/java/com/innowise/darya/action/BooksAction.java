@@ -3,8 +3,10 @@ package com.innowise.darya.action;
 import com.google.gson.Gson;
 import com.innowise.darya.dto.AuthorDTO;
 import com.innowise.darya.dto.BookDTO;
+import com.innowise.darya.dto.SectionDTO;
 import com.innowise.darya.service.AuthorService;
 import com.innowise.darya.service.BookService;
+import com.innowise.darya.service.SectionService;
 import com.opensymphony.xwork2.ActionSupport;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,14 +22,16 @@ import java.util.List;
 public class BooksAction extends ActionSupport {
 
     private BookService bookService;
+    private SectionService sectionService;
 
-
-    private String jsonString;
+   // private String jsonString;
     private List<BookDTO> book;
     private List<BookDTO> bookSection;
+    private List<SectionDTO> section;
 
-    public BooksAction(BookService bookService) {
+    public BooksAction(BookService bookService, SectionService sectionService) {
         this.bookService = bookService;
+        this.sectionService = sectionService;
     }
 
     @Override
@@ -36,8 +40,8 @@ public class BooksAction extends ActionSupport {
 //        Gson gson = new Gson();
 //        jsonString = gson.toJson(bookService.getAllBooks());
         book = bookService.getAllBooks();
-       //bookSection = bookService.getBySection(section);
-
+        section = sectionService.getAllSection();
+    //    bookSection = bookService.getBySection(id);
         return "success";
     }
 }

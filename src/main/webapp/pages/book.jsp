@@ -13,9 +13,13 @@
 <%--<%@page import="com.innowise.darya.action.BooksAction"%>--%>
 <%--<%@page import="com.innowise.darya.dto.BookDTO"%>--%>
 <%--<%@ taglib prefix="s" uri="/struts-tags" %>--%>
-
-
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Struts Rais</title>
+</head>
+<body>
+
 
 <%--<%@ JSONParser jsonParser = new JSONParser(); %>--%>
 <%--<%@ JSONObject jsonObject = (JSONObject) jsonParser.parse(reader); %>--%>
@@ -77,17 +81,20 @@
 <%--<button class="btn btn-primary" type="submit">Drama</button>--%>
 <%--<button class="btn btn-primary" type="submit">Horror</button>--%>
 <%--<button class="btn btn-primary" type="submit">Mystery</button>--%>
-<s:iterator value="book" var="ex">
-<div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary">Detective</button>
-    <button type="button" class="btn btn-secondary">Fantasy</button>
-    <button type="button" class="btn btn-secondary">Adventure</button>
-    <button type="button" class="btn btn-secondary">Classic</button>
-    <button type="button" class="btn btn-secondary">Drama</button>
-    <button type="button" class="btn btn-secondary">Horror</button>
-    <button type="button" class="btn btn-secondary">Mystery</button>
-</div>
+
+<div class="btn-group" role="group" aria-label="Basic example" style="width : 100%;">
+    <s:iterator value="section" var="ex">
+        <button type="button" class="btn btn-secondary"><s:property value="id"/><s:property value="nameSection"/></button>
+<%--    <button type="button" class="btn btn-secondary">Detective</button>--%>
+<%--    <button type="button" class="btn btn-secondary">Fantasy</button>--%>
+<%--    <button type="button" class="btn btn-secondary">Adventure</button>--%>
+<%--    <button type="button" class="btn btn-secondary">Classic</button>--%>
+<%--    <button type="button" class="btn btn-secondary">Drama</button>--%>
+<%--    <button type="button" class="btn btn-secondary">Horror</button>--%>
+<%--    <button type="button" class="btn btn-secondary">Mystery</button>--%>
 </s:iterator>
+</div>
+
 
 <%--<table border="1">--%>
 <%--    <tr>--%>
@@ -96,11 +103,11 @@
 <%--        <td>Amt</td>--%>
 <%--    </tr>--%>
     <s:iterator value="book" var="ex">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; float: left; height: 20rem;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
-                    <s:property value="bookTitle"/></td>--%>
+                    <s:property value="bookTitle"/></td>
 <%--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--%>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
@@ -136,5 +143,64 @@
 <%--        </tr>--%>
 <%--    </c:forEach>--%>
 <%--</table>--%>
-<%--</body>--%>
-<%--</html>--%>
+
+</body>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="page-footer font-small cyan darken-3">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+        <!-- Grid row-->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-12 py-5">
+                <div class="mb-5 flex-center">
+
+                    <!-- Facebook -->
+                    <a class="fb-ic">
+                        <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tw-ic">
+                        <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!-- Google +-->
+                    <a class="gplus-ic">
+                        <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Linkedin -->
+                    <a class="li-ic">
+                        <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                        <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Pinterest-->
+                    <a class="pin-ic">
+                        <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+                    </a>
+                </div>
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
+</html>
