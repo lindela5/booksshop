@@ -19,10 +19,12 @@ public class HelloAction extends ActionSupport {
 
     public String execute() throws Exception {
 
-
+        System.out.print("The handle is: " + handle);
         return SUCCESS;
 
     }
-
+    private String handle;
+    public String getHandle() { return handle; }
+    public void setHandle(String h) { handle = h; }
 
 }
