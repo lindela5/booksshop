@@ -21,7 +21,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BooksAction extends ActionSupport {
+public class BookSectionAction {
 
     private BookService bookService;
     private SectionService sectionService;
@@ -34,39 +34,24 @@ public class BooksAction extends ActionSupport {
     HttpServletRequest request;
 
 
-    public BooksAction(BookService bookService, SectionService sectionService) {
+    public BookSectionAction(BookService bookService, SectionService sectionService) {
         this.bookService = bookService;
         this.sectionService = sectionService;
 
     }
 
-    @Override
-    public String execute() {
+//  @Override
+    public String execute() throws Exception {
 
 //        Gson gson = new Gson();
 //        jsonString = gson.toJson(bookService.getAllBooks());
-        book = bookService.getAllBooks();
-        section = sectionService.getAllSection();
+//        book = bookService.getAllBooks();
+//        section = sectionService.getAllSection();
 //       request = ServletActionContext.getRequest();
 //        sectionId = request.getParameter("id");
 //
 //        bookSection = bookService.getBySection(Long.valueOf(sectionId));
-        return "success";
+        return "UPDATE";
 
     }
 }
-//    public String populate() throws Exception {
-//
-//      List<BookDTO> book = bookService.getAllBooks();
-//
-//        return SUCCESS;
-//    }
-
-//    public String getJsonString() {
-//        return jsonString;
-//    }
-//
-//    public void setJsonString(String jsonString) {
-//        this.jsonString = jsonString;
-//    }
-//}

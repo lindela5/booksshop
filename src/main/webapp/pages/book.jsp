@@ -1,11 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<script src="/js/book.js"></script>
 
 <%--<link rel='stylesheet' href='/css/bootstrap.min.css'>--%>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <%--<%@page import="org.json.simple.parser.JSONParser"%>--%>
@@ -16,7 +17,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Struts Rais</title>
+    <title>Struts Rais</title>
 </head>
 <body>
 
@@ -67,60 +68,35 @@
 <%--&lt;%&ndash;<script src="js/book.js"></script>&ndash;%&gt;--%>
 
 
-
-<%--<c:forEach var="book" items="${gson.fromJson(jsonString)}">--%>
-<%--    <div>--%>
-<%--        <c:out value="${book.bookTitle}" />--%>
-<%--    </div>--%>
-<%--    <br />--%>
-<%--</c:forEach>--%>
-<%--<button class="btn btn-primary" type="submit">Detective</button>--%>
-<%--<button class="btn btn-primary" type="submit">Fantasy</button>--%>
-<%--<button class="btn btn-primary" type="submit">Adventure</button>--%>
-<%--<button class="btn btn-primary" type="submit">Classic</button>--%>
-<%--<button class="btn btn-primary" type="submit">Drama</button>--%>
-<%--<button class="btn btn-primary" type="submit">Horror</button>--%>
-<%--<button class="btn btn-primary" type="submit">Mystery</button>--%>
-
 <div class="btn-group" role="group" aria-label="Basic example" style="width : 100%;">
     <s:iterator value="section" var="ex">
-        <button type="button" class="btn btn-secondary"><s:property value="id"/><s:property value="nameSection"/></button>
-<%--    <button type="button" class="btn btn-secondary">Detective</button>--%>
-<%--    <button type="button" class="btn btn-secondary">Fantasy</button>--%>
-<%--    <button type="button" class="btn btn-secondary">Adventure</button>--%>
-<%--    <button type="button" class="btn btn-secondary">Classic</button>--%>
-<%--    <button type="button" class="btn btn-secondary">Drama</button>--%>
-<%--    <button type="button" class="btn btn-secondary">Horror</button>--%>
-<%--    <button type="button" class="btn btn-secondary">Mystery</button>--%>
-</s:iterator>
+        <button type="submit" class="btn btn-secondary" onclick="myFunction()"><s:property value="nameSection"/></button>
+        <%--        <s:property value="id"/>--%>
+<%--        <s:action name="books" namespace="/" executeResult="false"></s:action>--%>
+
+        <%--      <s:bean name="com.mkyong.common.Person" var="bookBean">--%>
+<%--        <s:param name="id" value="%{section.id}"/>--%>
+        <%--        </s:bean>--%>
+
+    </s:iterator>
 </div>
 
 
-<%--<table border="1">--%>
-<%--    <tr>--%>
-<%--        <td>Name</td>--%>
-<%--        <td>Amt</td>--%>
-<%--        <td>Amt</td>--%>
-<%--    </tr>--%>
-    <s:iterator value="book" var="ex">
-        <div class="card" style="width: 18rem; float: left; height: 20rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                    <s:property value="bookTitle"/></td>
-<%--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--%>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-<%--        <tr>--%>
-<%--            <td><s:property value="bookTitle"/></td>--%>
-<%--            <td><s:property value="isbn"/></td>--%>
-<%--            <td><s:property value="yearOfIssue"/></td>--%>
-<%--&lt;%&ndash;            <td><s:textfield cssClass="num" onchange="calculateSum()"/></td>&ndash;%&gt;--%>
-<%--        </tr>--%>
-    </s:iterator>
-<%--</table>--%>
+<s:iterator value="book" var="ex">
+    <div id="card" class="card" style="width: 18rem; float: left; height: 20rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><s:property value="bookTitle"/></h5>
+            <s:property value="yearOfIssue"/>
+            </br>
+            <p> Price: <s:property value="price"/>$</p>
+            </br>
 
+                <%--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--%>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+        </div>
+    </div>
+</s:iterator>
 
 
 <%--<html>--%>

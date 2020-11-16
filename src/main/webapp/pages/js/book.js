@@ -1,3 +1,31 @@
+function myFunction() {
+    var cardBook = document.getElementById('card');
+    // var rowCount = cardBook.length;
+    //
+    // for (var x=rowCount-1; x>0; x--) {
+    //     cardBook[x].parentNode.removeChild(cardBook[x]);
+    //     var el = document.getElementById('div-02');
+    cardBook.remove();
+    // $.ajax({
+    //     type: "GET",
+    //     url: "bookSection.action",
+    //     success: function (itr) {
+    //         var x = "<ol>";
+    //         $.each(itr.dataList, function () {
+    //             x += "<li>" + this + "</li>";
+    //         });
+    //         x += "</ol>";
+    //         $("#websparrow").html(x);
+    //     },
+    //     error: function (itr) {
+    //         alert("No values found..!!");
+    //     }
+    // });
+}
+ //   }
+
+
+
 // function searchById() {
 //     var id = document.getElementById("search_field").value;
 //     var xhttp = new XMLHttpRequest();
@@ -72,36 +100,36 @@
 //     loadBooks();
 // }
 
-function loadBooks() {
-    let html;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var books = JSON.parse("jsonString");//this.responseText);
-            let html = '<tr>\n' +
-                '        <th>Book id</th>\n' +
-                '        <th>Book title</th>\n' +
-                '        <th>Delete</th>\n' +
-                '    </tr>';
-
-
-            document.getElementById("bookList").innerHTML = html;
-
-            books.forEach((book) => {
-
-                document.getElementById("bookList").innerHTML = document.getElementById("bookList").outerHTML +
-                    '<tr><td>' + book.bookId + '</td>\n' +
-                    '        <td>' + book.bookTitle + '</td>\n' +
-
-                    '        <td><button onclick="deleteBook(' + book.id + ')">Delete</button></td></tr>';
-
-
-            })
-
-        }
-    };
-    xhttp.open("GET", "http://localhost:8082/books", true);
-    xhttp.send();
-}
-
-loadBooks();
+// function loadBooks() {
+//     let html;
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function () {
+//         if (this.readyState == 4 && this.status == 200) {
+//             var books = JSON.parse("jsonString");//this.responseText);
+//             let html = '<tr>\n' +
+//                 '        <th>Book id</th>\n' +
+//                 '        <th>Book title</th>\n' +
+//                 '        <th>Delete</th>\n' +
+//                 '    </tr>';
+//
+//
+//             document.getElementById("bookList").innerHTML = html;
+//
+//             books.forEach((book) => {
+//
+//                 document.getElementById("bookList").innerHTML = document.getElementById("bookList").outerHTML +
+//                     '<tr><td>' + book.bookId + '</td>\n' +
+//                     '        <td>' + book.bookTitle + '</td>\n' +
+//
+//                     '        <td><button onclick="deleteBook(' + book.id + ')">Delete</button></td></tr>';
+//
+//
+//             })
+//
+//         }
+//     };
+//     xhttp.open("GET", "http://localhost:8082/books", true);
+//     xhttp.send();
+// }
+//
+// loadBooks();

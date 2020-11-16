@@ -32,6 +32,10 @@
             </result>
         </action>
 
+<!--        <action name="bookSection" class="com.innowise.darya.action.BookSectionAction">-->
+<!--            <result name="UPDATE" type="json"></result>-->
+<!--        </action>-->
+
     </package>
 
 
