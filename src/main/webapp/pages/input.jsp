@@ -34,12 +34,12 @@
     <s:iterator value="section" var="ex">
 
         <button type="submit" class="btn btn-secondary" onclick="myFunction()">
-            <s:property value="nameSection"/>
+<%--            <s:property value="nameSection"/>--%>
 
             <s:url var="ajaxLink" value="/bookSection.action">
                     <s:param name="handle"> id </s:param>
             </s:url>
-            <sj:a id="link1" href="%{ajaxLink}" targets="ajax-results">
+            <sj:a  href="%{ajaxLink}" targets="ajax-results">
 
                 <s:property value="nameSection"/>
             </sj:a>

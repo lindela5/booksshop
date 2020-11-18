@@ -15,13 +15,13 @@
 <%--<%@page import="com.innowise.darya.action.BooksAction"%>--%>
 <%--<%@page import="com.innowise.darya.dto.BookDTO"%>--%>
 <%--<%@ taglib prefix="s" uri="/struts-tags" %>--%>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Struts Rais</title>
-    <sj:head/>
-</head>
-<body>
+<%--<html>--%>
+<%--<head>--%>
+<%--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">--%>
+<%--    <title>Struts Rais</title>--%>
+<%--    <sj:head/>--%>
+<%--</head>--%>
+<%--<body>--%>
 
 <s:url var="ajaxLink" value="/hello.action">
     <s:param name="handle"> @cameronmcnz </s:param>
@@ -133,7 +133,7 @@
 <%--    </c:forEach>--%>
 <%--</table>--%>
 
-</body>
+<%--</body>--%>
 <!-- Footer -->
 <!-- Footer -->
 <%--<footer class="page-footer font-small cyan darken-3">--%>
@@ -192,4 +192,4 @@
 <%--<!-- Footer -->--%>
 
 
-</html>
+<%--</html>--%>
