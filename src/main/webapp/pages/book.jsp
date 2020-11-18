@@ -23,16 +23,16 @@
 <%--</head>--%>
 <%--<body>--%>
 
-<s:url var="ajaxLink" value="/hello.action">
-    <s:param name="handle"> @cameronmcnz </s:param>
-</s:url>
-<sj:a id="link1" href="%{ajaxLink}" targets="ajax-results">
-    Say Hello to @cameronmcnz
-</sj:a>
+<%--<s:url var="ajaxLink" value="/hello.action">--%>
+<%--    <s:param name="handle"> @cameronmcnz </s:param>--%>
+<%--</s:url>--%>
+<%--<sj:a id="link1" href="%{ajaxLink}" targets="ajax-results">--%>
+<%--    Say Hello to @cameronmcnz--%>
+<%--</sj:a>--%>
 
-<div id="ajax-results">
-    <h5>JQuery Struts Ajax result will go here</h5>
-</div>
+<%--<div id="ajax-results">--%>
+<%--    <h5>JQuery Struts Ajax result will go here</h5>--%>
+<%--</div>--%>
 <%--<%@ JSONParser jsonParser = new JSONParser(); %>--%>
 <%--<%@ JSONObject jsonObject = (JSONObject) jsonParser.parse(reader); %>--%>
 
