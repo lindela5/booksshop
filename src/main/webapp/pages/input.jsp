@@ -34,13 +34,13 @@
     <s:iterator value="section" var="ex">
 
         <button type="submit" class="btn btn-secondary" onclick="myFunction()">
-<%--            <s:property value="nameSection"/>--%>
+            <s:property value="nameSection"/>
 
             <s:url var="ajaxLink" value="/bookSection.action">
-                    <s:param name="handle"> %{id} </s:param>
+                    <s:param name="handle"> id </s:param>
             </s:url>
             <sj:a id="link1" href="%{ajaxLink}" targets="ajax-results">
-<%--                Say Hello to @cameronmcnz--%>
+
                 <s:property value="nameSection"/>
             </sj:a>
         </button>
@@ -54,6 +54,15 @@
 
     </s:iterator>
 </div>
+
+
+<%--<s:url var="ajaxLink" value="/bookSection.action">--%>
+<%--    <s:param name="handle"> %{id} </s:param>--%>
+<%--</s:url>--%>
+<%--<sj:a id="link1" href="%{ajaxLink}" targets="ajax-results">--%>
+<%--                    Say Hello to @cameronmcnz--%>
+<%--&lt;%&ndash;    <s:property value="nameSection"/>&ndash;%&gt;--%>
+<%--</sj:a>--%>
 
 
 
