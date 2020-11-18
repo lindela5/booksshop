@@ -43,6 +43,7 @@ public class BookSectionAction {
 //  @Override
     public String execute() throws Exception {
 
+        book = bookService.getAllBooks();
 //        Gson gson = new Gson();
 //        jsonString = gson.toJson(bookService.getAllBooks());
 //        book = bookService.getAllBooks();

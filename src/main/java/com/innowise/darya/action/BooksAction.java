@@ -45,7 +45,7 @@ public class BooksAction extends ActionSupport {
 
 //        Gson gson = new Gson();
 //        jsonString = gson.toJson(bookService.getAllBooks());
-        book = bookService.getAllBooks();
+//        book = bookService.getAllBooks();
         section = sectionService.getAllSection();
 //       request = ServletActionContext.getRequest();
 //        sectionId = request.getParameter("id");

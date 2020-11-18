@@ -24,7 +24,7 @@
                 </action>
 
         <action name="books" class="com.innowise.darya.action.BooksAction">
-            <result name="success">pages/book.jsp
+            <result name="success">pages/input.jsp
 <!--                <param name="noCache">true</param>-->
 <!--                <param name="excludeNullProperties">true</param>-->
 <!--                <param name="root">jsonString</param>-->
@@ -32,9 +32,9 @@
             </result>
         </action>
 
-<!--        <action name="bookSection" class="com.innowise.darya.action.BookSectionAction">-->
-<!--            <result name="UPDATE" type="json"></result>-->
-<!--        </action>-->
+        <action name="bookSection" class="com.innowise.darya.action.BookSectionAction">
+            <result name="UPDATE">pages/book.jsp</result>
+        </action>
 
     </package>
 

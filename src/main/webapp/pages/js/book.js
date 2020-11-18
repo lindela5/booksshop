@@ -1,11 +1,14 @@
 function myFunction() {
+    // var cardBook = document.getElementById('card');
+    // // var rowCount = cardBook.length;
+    // //
+    // // for (var x=rowCount-1; x>0; x--) {
+    // //     cardBook[x].parentNode.removeChild(cardBook[x]);
+    // //     var el = document.getElementById('div-02');
+    // cardBook.remove();
     var cardBook = document.getElementById('card');
-    // var rowCount = cardBook.length;
-    //
-    // for (var x=rowCount-1; x>0; x--) {
-    //     cardBook[x].parentNode.removeChild(cardBook[x]);
-    //     var el = document.getElementById('div-02');
-    cardBook.remove();
+
+}
     // $.ajax({
     //     type: "GET",
     //     url: "bookSection.action",
@@ -21,7 +24,7 @@ function myFunction() {
     //         alert("No values found..!!");
     //     }
     // });
-}
+
  //   }
 
 
