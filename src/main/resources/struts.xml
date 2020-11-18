@@ -10,7 +10,7 @@
 
         <action name="hello"
                 class="com.innowise.darya.action.HelloAction" >
-            <result name="success">pages/hello.jsp</result>
+            <result name="success">pages/result.jsp</result>
         </action>
 
 <!--        <action name="userSpring"-->
