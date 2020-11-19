@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script src="/js/book.js"></script>
+<%--<script src="/js/book.js"></script>--%>
 
 <%--<link rel='stylesheet' href='/css/bootstrap.min.css'>--%>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -95,7 +95,7 @@
 <%--</div>--%>
 
 
-<s:iterator value="book" var="ex">
+<s:iterator value="bookSection" var="ex">
     <div id="card" class="card" style="width: 18rem; float: left; height: 20rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">

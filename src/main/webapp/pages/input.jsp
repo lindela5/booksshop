@@ -33,17 +33,18 @@
 <div class="btn-group" role="group" aria-label="Basic example" style="width : 100%;">
     <s:iterator value="section" var="ex">
 
-        <button type="submit" class="btn btn-secondary" onclick="myFunction()">
+
 <%--            <s:property value="nameSection"/>--%>
 
             <s:url var="ajaxLink" value="/bookSection.action">
-                    <s:param name="handle"> id </s:param>
+                    <s:param name="sectionId"><s:property value="id"/></s:param>
             </s:url>
             <sj:a  href="%{ajaxLink}" targets="ajax-results">
-
+                <button type="submit" class="btn btn-secondary" onclick="myFunction()">
                 <s:property value="nameSection"/>
+                </button>
             </sj:a>
-        </button>
+
 
         <%--        <s:property value="id"/>--%>
         <%--        <s:action name="books" namespace="/" executeResult="false"></s:action>--%>

@@ -1,6 +1,6 @@
 package com.innowise.darya.action;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import com.innowise.darya.dto.AuthorDTO;
 import com.innowise.darya.dto.BookDTO;
 import com.innowise.darya.dto.SectionDTO;
@@ -46,9 +46,11 @@ public class BooksAction extends ActionSupport {
 //        Gson gson = new Gson();
 //        jsonString = gson.toJson(bookService.getAllBooks());
 //        book = bookService.getAllBooks();
+
+        System.out.println("books: " + sectionId);
         section = sectionService.getAllSection();
 //       request = ServletActionContext.getRequest();
-//        sectionId = request.getParameter("id");
+        //sectionId = request.getParameter("sectionId");
 //
 //        bookSection = bookService.getBySection(Long.valueOf(sectionId));
         return "success";

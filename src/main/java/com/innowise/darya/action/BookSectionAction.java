@@ -1,6 +1,6 @@
 package com.innowise.darya.action;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import com.innowise.darya.dto.AuthorDTO;
 import com.innowise.darya.dto.BookDTO;
 import com.innowise.darya.dto.SectionDTO;
@@ -42,8 +42,8 @@ public class BookSectionAction {
 
 //  @Override
     public String execute() throws Exception {
-
-        book = bookService.getAllBooks();
+        System.out.println("booksSection: " + sectionId);
+//        book = bookService.getAllBooks();
 //        Gson gson = new Gson();
 //        jsonString = gson.toJson(bookService.getAllBooks());
 //        book = bookService.getAllBooks();
@@ -51,7 +51,7 @@ public class BookSectionAction {
 //       request = ServletActionContext.getRequest();
 //        sectionId = request.getParameter("id");
 //
-//        bookSection = bookService.getBySection(Long.valueOf(sectionId));
+        bookSection = bookService.getBySection(Long.valueOf(sectionId));
         return "UPDATE";
 
     }
