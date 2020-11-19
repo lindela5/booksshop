@@ -1,21 +1,21 @@
 function myFunction() {
-    // var cardBook = document.getElementById('card');
-    // // var rowCount = cardBook.length;
-    // //
-    // // for (var x=rowCount-1; x>0; x--) {
-    // //     cardBook[x].parentNode.removeChild(cardBook[x]);
-    // //     var el = document.getElementById('div-02');
-    // cardBook.remove();
+    let cardBook = document.getElementById('ajax-results');
+    // var rowCount = cardBook.length;
+    //
+    // for (var x=rowCount-1; x>0; x--) {
+    //     cardBook[x].parentNode.removeChild(cardBook[x]);
+    //     var el = document.getElementById('div-02');
+    cardBook.remove();
     // var cardBook = document.getElementById('card');
 
-    // $.ajax({
-    //     type : "GET",
-    //     url : "/bookSection.action"
-
-        // data : "data to be sent on the server",
-        // success : {"Message on success"},
-        // error : {"Message on error"}}
-// });
+    $.ajax({
+        type : "GET",
+        url : "/bookSection.action",
+//
+//         // data : "data to be sent on the server",
+//         // success : {"Message on success"},
+//         // error : {"Message on error"}
+});
 
 }
     // $.ajax({

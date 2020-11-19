@@ -1,69 +1,63 @@
-<%--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"--%>
-<%--         pageEncoding="ISO-8859-1"%>--%>
-<%--<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">--%>
-<%--    <title>Baledung Struts</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-
 <%@ page language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script src="/js/book.js"></script>
+
+
 
 <%--<link rel='stylesheet' href='/css/bootstrap.min.css'>--%>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="/pages/css/input.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Struts Rais</title>
+    <script src="/pages/js/book.js"></script>
+
     <sj:head/>
 </head>
 <body>
 
 
+<img src="/pages/download.jpeg" class="img-fluid" alt="Responsive image">
 
-<div class="btn-group" role="group" aria-label="Basic example" style="width : 100%;">
+
+
+<%--<div class="btn-group" role="group" aria-label="Basic example">--%>
+<%--    <s:iterator value="section" var="ex">--%>
+
+
+<%--&lt;%&ndash;            <s:property value="nameSection"/>&ndash;%&gt;--%>
+
+<%--            <s:url var="ajaxLink" value="/bookSection.action">--%>
+<%--                    <s:param name="sectionId"><s:property value="id"/></s:param>--%>
+<%--            </s:url>--%>
+<%--            <sj:a  href="%{ajaxLink}" targets="ajax-results">--%>
+<%--                <button type="submit" class="btn btn-secondary" onclick="myFunction()">--%>
+<%--                <s:property value="nameSection"/>--%>
+<%--                </button>--%>
+<%--            </sj:a>--%>
+
+<%--    </s:iterator>--%>
+<%--</div>--%>
+
+
+
+<div class="btn-group" role="group" aria-label="Basic example">
     <s:iterator value="section" var="ex">
-
-
-<%--            <s:property value="nameSection"/>--%>
-
-            <s:url var="ajaxLink" value="/bookSection.action">
-                    <s:param name="sectionId"><s:property value="id"/></s:param>
-            </s:url>
-            <sj:a  href="%{ajaxLink}" targets="ajax-results">
+<%--        <s:param name="sectionId"><s:property value="id"/></s:param>--%>
                 <button type="submit" class="btn btn-secondary" onclick="myFunction()">
                 <s:property value="nameSection"/>
+
                 </button>
-            </sj:a>
-
-
-        <%--        <s:property value="id"/>--%>
-        <%--        <s:action name="books" namespace="/" executeResult="false"></s:action>--%>
-
-        <%--      <s:bean name="com.mkyong.common.Person" var="bookBean">--%>
-        <%--        <s:param name="id" value="%{section.id}"/>--%>
-        <%--        </s:bean>--%>
 
     </s:iterator>
 </div>
-
-
-<%--<s:url var="ajaxLink" value="/bookSection.action">--%>
-<%--    <s:param name="handle"> %{id} </s:param>--%>
-<%--</s:url>--%>
-<%--<sj:a id="link1" href="%{ajaxLink}" targets="ajax-results">--%>
-<%--                    Say Hello to @cameronmcnz--%>
-<%--&lt;%&ndash;    <s:property value="nameSection"/>&ndash;%&gt;--%>
-<%--</sj:a>--%>
 
 
 
@@ -72,21 +66,6 @@
 </div>
 
 
-
-
-
-<%--<form method="get" action="/car.action">--%>
-<%--    <p>Welcome to Baeldung Struts 2 app</p>--%>
-<%--    <p>Which car do you like !!</p>--%>
-<%--    <p>Please choose ferrari or bmw</p>--%>
-<%--    <select name="carName">--%>
-<%--        <option value="Ferrari" label="ferrari" />--%>
-<%--        <option value="BMW" label="bmw" />--%>
-<%--    </select> <input type="submit" value="Enter!" />--%>
-
-<%--</form>--%>
-<%--</body>--%>
-<%--</html>--%>
 </body>
 <!-- Footer -->
 <!-- Footer -->

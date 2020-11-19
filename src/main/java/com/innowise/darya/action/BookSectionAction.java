@@ -46,12 +46,12 @@ public class BookSectionAction {
 //        book = bookService.getAllBooks();
 //        Gson gson = new Gson();
 //        jsonString = gson.toJson(bookService.getAllBooks());
-//        book = bookService.getAllBooks();
+//       book = bookService.getAllBooks();
 //        section = sectionService.getAllSection();
 //       request = ServletActionContext.getRequest();
 //        sectionId = request.getParameter("id");
 //
-        bookSection = bookService.getBySection(Long.valueOf(sectionId));
+//        bookSection = bookService.getBySection(Long.valueOf(sectionId));
         return "UPDATE";
 
     }
