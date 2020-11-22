@@ -53,30 +53,29 @@
 
 
 
-<%--<div class="btn-group" role="group" aria-label="Basic example">--%>
-<%--    <s:iterator value="section" var="ex">--%>
-<%--&lt;%&ndash;        <s:param name="sectionId"><s:property value="id"/></s:param>&ndash;%&gt;--%>
-
-<%--                <button type="submit" class="btn btn-secondary" onclick="myFunction()">--%>
-<%--                    <input type="hidden" name="section" value=" <s:property value="id"/>">--%>
-<%--                <s:property value="nameSection"/>--%>
-<%--                </button>--%>
-
-<%--    </s:iterator>--%>
-<%--</div>--%>
-
-
 <div class="btn-group" role="group" aria-label="Basic example">
+    <s:iterator value="section" var="ex">
+<%--        <s:param name="sectionId"><s:property value="id"/></s:param>--%>
 
-    <c:forEach items="${section}" var="section">
-<%--        <c:out value="${list}" />--%>
-        <button type="submit" class="btn btn-secondary" onclick="myFunction('${section.id}')">
-<%--            <c:out value="${section}" />--%>
-                ${section.nameSection}
-        </button>
-    </c:forEach>
+                <button type="submit" class="btn btn-secondary" onclick="myFunction()">
+                    <input type="hidden" name="section" value=" <s:property value="id"/>">
+                <s:property value="nameSection"/>
+                </button>
 
+    </s:iterator>
 </div>
+
+
+<%--<div class="btn-group" role="group" aria-label="Basic example">--%>
+
+<%--    <c:forEach items="${list}" var="section">--%>
+<%--        <button type="submit" class="btn btn-secondary" onclick="myFunction()">--%>
+
+<%--                ${list.nameSection}--%>
+<%--        </button>--%>
+<%--    </c:forEach>--%>
+
+<%--</div>--%>
 
 
 

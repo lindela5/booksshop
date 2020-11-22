@@ -1,6 +1,8 @@
 package com.innowise.darya.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "books")
@@ -25,7 +28,7 @@ public class Book {
     private String title;
 
     @NotBlank
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "bookId"),
             inverseJoinColumns = @JoinColumn(name = "authorId"))
     private Set<Author> author = new HashSet<>();
@@ -47,6 +50,12 @@ public class Book {
     private BigDecimal price;
     private Integer stockBalances;
 
+    @Transient
+    private Set<Long> authorIds;
 
+    @PostLoad
+    private void postLoad() {
+        authorIds = author.stream().map(Author::getAuthorId).collect(Collectors.toSet());
+    }
 
 }

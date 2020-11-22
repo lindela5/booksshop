@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping(path = "/book")
+@RequestMapping(path = "/book1")
 @Log
 public class BookController {
 

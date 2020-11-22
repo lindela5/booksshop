@@ -5,6 +5,20 @@
 
 <struts>
     <constant name="struts.devMode" value="true" />
+<!--    <constant name="struts.convention.result.path" value="webapp/WEB-INF/content/"/>-->
+
+    <package name="json" namespace="/" extends="json-default">
+        <action name="bookSection" class="com.innowise.darya.action.BookSectionAction">
+            <result type="json" />
+            <!--            <result name="UPDATE">pages/input.jsp</result>-->
+        </action>
+<!--        <action name="databaseJSON"-->
+<!--                class="com.mkyong.common.action.DatabaseJSON">-->
+<!--            <result type="json" >-->
+<!--                <param name="root">databases</param>-->
+<!--            </result>-->
+<!--        </action>-->
+    </package>
 
     <package name="default" namespace="/" extends="struts-default">
 
@@ -23,6 +37,8 @@
                     <result name="success">pages/result.jsp</result>
                 </action>
 
+
+
         <action name="books" class="com.innowise.darya.action.BooksAction">
             <result name="success">pages/input.jsp
 <!--                <param name="noCache">true</param>-->
@@ -30,10 +46,6 @@
 <!--                <param name="root">jsonString</param>-->
 
             </result>
-        </action>
-
-        <action name="bookSection" class="com.innowise.darya.action.BookSectionAction">
-            <result name="UPDATE">pages/book.jsp</result>
         </action>
 
     </package>
