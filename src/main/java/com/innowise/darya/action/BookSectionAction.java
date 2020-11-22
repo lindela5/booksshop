@@ -1,12 +1,15 @@
 package com.innowise.darya.action;
 
 //import com.google.gson.Gson;
+
+import com.google.gson.Gson;
 import com.innowise.darya.dto.AuthorDTO;
 import com.innowise.darya.dto.BookDTO;
 import com.innowise.darya.dto.SectionDTO;
 import com.innowise.darya.service.AuthorService;
 import com.innowise.darya.service.BookService;
 import com.innowise.darya.service.SectionService;
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,8 +31,9 @@ public class BookSectionAction {
 
     //    private String jsonString;
     private List<BookDTO> book;
-    private List<BookDTO> bookSection;
+    private List<BookDTO> sectionBooks;
     private List<SectionDTO> section;
+    private String books;
     private String sectionId;
     HttpServletRequest request;
 
@@ -40,7 +44,7 @@ public class BookSectionAction {
 
     }
 
-//  @Override
+    //  @Override
     public String execute() throws Exception {
         System.out.println("booksSection: " + sectionId);
 //        book = bookService.getAllBooks();
@@ -51,8 +55,10 @@ public class BookSectionAction {
 //       request = ServletActionContext.getRequest();
 //        sectionId = request.getParameter("id");
 //
-//        bookSection = bookService.getBySection(Long.valueOf(sectionId));
-        return "UPDATE";
-
+        sectionBooks = bookService.getBySection(Long.parseLong(sectionId));
+        Gson gson = new Gson();
+        books = gson.toJson(sectionBooks);
+        //  return "UPDATE";
+        return Action.SUCCESS;
     }
 }
