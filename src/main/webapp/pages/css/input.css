@@ -9,11 +9,17 @@
 /*    float: none;*/
 /*    width : 100%;*/
 /*}*/
-body {
-    color: red;
-}
 
-#ajax-results{
+#results{
     float: none;
-    display: none;
+    /*color: red;*/
+    /*display: none;*/
+    width: 100%;
+}
+#footerWith {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
 }
