@@ -13,6 +13,7 @@ body {
     color: red;
 }
 
-/*#ajax-results{*/
-/*    float: none;*/
-/*}*/
+#ajax-results{
+    float: none;
+    display: none;
+}

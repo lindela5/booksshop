@@ -3,7 +3,7 @@ function myFunction(id) {
     while (cardBook.hasChildNodes()) {
         cardBook.removeChild(cardBook.firstChild);
     }
-console.log(id);
+    console.log(id);
     fetch('/bookSection.action?sectionId=' + id)
         .then((response) => {
             return response.json();
@@ -16,6 +16,8 @@ console.log(id);
         .catch((response) => {
             console.log("error");
             console.log(response);
+
+
         });
     // var rowCount = cardBook.length;
     //
@@ -35,26 +37,42 @@ console.log(id);
 // });
 
 }
-    // $.ajax({
-    //     type: "GET",
-    //     url: "bookSection.action",
-    //     success: function (itr) {
-    //         var x = "<ol>";
-    //         $.each(itr.dataList, function () {
-    //             x += "<li>" + this + "</li>";
-    //         });
-    //         x += "</ol>";
-    //         $("#websparrow").html(x);
-    //     },
-    //     error: function (itr) {
-    //         alert("No values found..!!");
-    //     }
-    // });
 
- //   }
+// $.ajax({
+//     type: "GET",
+//     url: "bookSection.action",
+//     success: function (itr) {
+//         var x = "<ol>";
+//         $.each(itr.dataList, function () {
+//             x += "<li>" + this + "</li>";
+//         });
+//         x += "</ol>";
+//         $("#websparrow").html(x);
+//     },
+//     error: function (itr) {
+//         alert("No values found..!!");
+//     }
+// });
+
+//   }
 
 
 const reloadBooks = (books) => {
+    let book = JSON.parse(books, function (key, value) {
+        if (key == 'date') return new Date(value);
+        return value;
+    });
+    if (book.length == 0) {
+        $("#results").append(`</br><h1>No such books</h1>`)
+    } else {
+        for (index = 0; index < book.length; ++index) {
 
-    //$("#websparrow").html(x);
+            console.log(book[index]);
+
+            $("#results").append(`<div id="card" class="card" style="width: 18rem; float: left; height: 20rem;">
+                <div class="card-body"><h5 class="card-title">${book[index].bookTitle}</h5>
+                <p>${book[index].yearOfIssue}</p></br><p> Price: ${book[index].price} $</p></br>
+                <a href="#" class="btn btn-primary">Add to cart</a></div></div>`)//(`<p>${book[index].bookTitle}</p>`)
+        }
+    }
 }
