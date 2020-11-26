@@ -30,7 +30,8 @@ public interface BookDTOTransformer {
             @Mapping(target = "yearOfIssue", source = "entity.yearOfIssue"),
             @Mapping(target = "publishingHouse", source = "entity.publishingHouse"),
             @Mapping(target = "price", source = "entity.price"),
-            @Mapping(target = "stockBalances", source = "entity.stockBalances")
+            @Mapping(target = "stockBalances", source = "entity.stockBalances"),
+            @Mapping(target = "picture", source = "entity.picture")
     })
     BookDTO bookToBookDTO(Book entity);
 

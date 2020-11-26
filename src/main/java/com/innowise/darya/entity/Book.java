@@ -49,6 +49,7 @@ public class Book {
 
     private BigDecimal price;
     private Integer stockBalances;
+    private String picture;
 
     @Transient
     private Set<Long> authorIds;

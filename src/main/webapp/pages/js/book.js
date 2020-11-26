@@ -69,8 +69,15 @@ const reloadBooks = (books) => {
 
             console.log(book[index]);
 
-            $("#results").append(`<div id="card" class="card" style="width: 18rem; float: left; height: 20rem;">
-                <div class="card-body"><h5 class="card-title">${book[index].bookTitle}</h5>
+        //     var author
+        //     for (i = 0; i < book[index].bookAuthor.length; ++i){
+        //         author[i] = book.bookAuthor[i].authorId
+        //     console.log(author);
+        // }
+
+            $("#results").append(`<div id="card" class="card" style="width: 18rem; float: left; height: 27rem;">
+                <img src="${book[index].picture}" class="card-img-top" style="max-width: 150px; max-height: 150px;">
+                <div class="card-body"><h5 class="card-title" style="height: 50px;">${book[index].bookTitle}</h5>
                 <p>${book[index].yearOfIssue}</p></br><p> Price: ${book[index].price} $</p></br>
                 <a href="#" class="btn btn-primary">Add to cart</a></div></div>`)//(`<p>${book[index].bookTitle}</p>`)
         }

@@ -24,11 +24,11 @@
 </head>
 <body>
 
+</br>
+<div class="fig"><img src="https://i.ibb.co/tzy7qSS/unnamed.png" class="img-fluid" alt="Responsive image">
+</div>
 
-<img src="/pages/download.jpeg" class="img-fluid" alt="Responsive image">
-
-
-
+</br>
 <%--<div class="btn-group" role="group" aria-label="Basic example">--%>
 <%--    <s:iterator value="section" var="ex">--%>
 
@@ -82,17 +82,15 @@
 
 
 <div id="results">
-    <h5>JQuery Struts Ajax result will go here</h5>
     <s:iterator value="book" var="ex">
-        <div id="card" class="card" style="width: 18rem; float: left; height: 20rem;">
-            <img src="..." class="card-img-top" alt="...">
+        <div id="card" class="card" style="width: 18rem; float: left; height: 27rem;">
+            <img src="<s:property value="picture"/>" class="card-img-top" style="max-width: 150px; max-height: 150px;">
             <div class="card-body">
-                <h5 class="card-title"><s:property value="bookTitle"/></h5>
+                <h5 class="card-title" style="height: 50px;"><s:property value="bookTitle"/></h5>
                 <s:property value="yearOfIssue"/>
                 </br>
                 <p> Price: <s:property value="price"/>$</p>
                 </br>
-
                     <%--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--%>
                 <a href="#" class="btn btn-primary">Add to cart</a>
             </div>
@@ -100,7 +98,7 @@
     </s:iterator>
 
 </div>
-
+</br>
 
 </body>
 <!-- Footer -->

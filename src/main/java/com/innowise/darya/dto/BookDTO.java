@@ -25,4 +25,5 @@ public class BookDTO {
     private PublishingHouse publishingHouse;
     private BigDecimal price;
     private Integer stockBalances;
+    private String picture;
 }
