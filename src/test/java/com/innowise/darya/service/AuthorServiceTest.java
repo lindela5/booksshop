@@ -4,8 +4,11 @@ import com.innowise.darya.dto.AuthorDTO;
 import com.innowise.darya.entity.Author;
 import com.innowise.darya.exception.ThereIsNoSuchException;
 import com.innowise.darya.repositoty.AuthorRepository;
+import com.innowise.darya.transformer.AuthorDTOTransformer;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mapstruct.factory.Mappers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -22,9 +25,10 @@ class AuthorServiceTest {
     @Mock //создаем заглушку (или макет)
     AuthorRepository authorRepository;
 
-    @InjectMocks //создает экземпляр класса и внедряет @Mock созданные с @Mock (или @Spy) в этот экземпляр
+ //   @InjectMocks //создает экземпляр класса и внедряет @Mock созданные с @Mock (или @Spy) в этот экземпляр
     AuthorService authorService;
 
+    static final AuthorDTOTransformer AUTHOR_DTO_TRANSFORMER = Mappers.getMapper(AuthorDTOTransformer.class);
     private static final Long WRONG_ID = 8L;
     static final Long ID = 6L;
     static final String FIRST_NAME = "Agatha";
@@ -42,6 +46,10 @@ class AuthorServiceTest {
                     .build();
     //@formatter=on
 
+    @BeforeEach
+    public void initMock() {
+        authorService = new AuthorServiceImpl (authorRepository);
+    }
 
     @Test
     public void shouldThrowAuthorException() {
@@ -56,7 +64,8 @@ class AuthorServiceTest {
     public void shouldReturnAuthorStat() {
         given(authorRepository.findByAuthorId(ID)).willReturn(AUTHOR);
         AuthorDTO actual = authorService.getAuthorById(ID);
-        assertEquals(AUTHOR, actual);
+        Author actualEntity = AUTHOR_DTO_TRANSFORMER.authorDTOToAuthor(actual);
+        assertEquals(AUTHOR, actualEntity);
         then(authorRepository).should(only()).findByAuthorId(ID);
 
     }

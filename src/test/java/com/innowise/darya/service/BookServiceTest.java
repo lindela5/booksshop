@@ -9,6 +9,7 @@ import com.innowise.darya.entity.Book;
 import com.innowise.darya.entity.PublishingHouse;
 import com.innowise.darya.entity.Section;
 import com.innowise.darya.exception.ThereIsNoSuchException;
+import com.innowise.darya.repositoty.AuthorRepository;
 import com.innowise.darya.repositoty.BookRepository;
 import com.innowise.darya.transformer.BookDTOTransformer;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +24,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 
+import static com.innowise.darya.entity.Book.aBook;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
@@ -36,10 +38,11 @@ class BookServiceTest {
     @Mock //создаем заглушку (или макет)
     BookRepository bookRepository;
 
+
     //@InjectMocks //создает экземпляр класса и внедряет @Mock созданные с @Mock (или @Spy) в этот экземпляр
     BookService bookService;
 
-
+    static final BookDTOTransformer TRANSFORMER = Mappers.getMapper(BookDTOTransformer.class);
     private static final Long WRONG_ID = 16L;
     static final Long ID = 2L;
     static final String BOOK_TITLE = "Good Omens";
@@ -47,19 +50,31 @@ class BookServiceTest {
     static final Long AUTHOR1_ID = 8L;
     static final Long AUTHOR2_ID = 9L;
 
-    static final AuthorDTO AUTHOR1 =
-            AuthorDTO.builder()
+    static final Author AUTHOR1 =
+            Author.builder()
                     .authorId(AUTHOR1_ID)
                     .build();
-    static final AuthorDTO AUTHOR2 =
-            AuthorDTO.builder()
+    static final Author AUTHOR2 =
+            Author.builder()
                     .authorId(AUTHOR2_ID)
                     .build();
 
-    static final Set<AuthorDTO> AUTHOR_BOOK = Set.of(
+//    static final AuthorDTO AUTHOR1_DTO =
+//            AuthorDTO.builder()
+//                    .authorId(AUTHOR1_ID)
+//                    .build();
+//    static final AuthorDTO AUTHOR2_DTO =
+//            AuthorDTO.builder()
+//                    .authorId(AUTHOR2_ID)
+//                    .build();
+
+    static final Set<Author> AUTHOR_BOOK = Set.of(
             AUTHOR1,
             AUTHOR2);
 
+//    static final Set<AuthorDTO> AUTHOR_BOOK_DTO = Set.of(
+//            AUTHOR1_DTO,
+//            AUTHOR2_DTO);
 
     static final String ISBN = "9781910281918";
 
@@ -85,11 +100,24 @@ class BookServiceTest {
 
     //@formatter=off
 
-    static final BookDTO BOOKDTO =
-            BookDTO.builder()
+//    static final BookDTO BOOKDTO =
+//            BookDTO.builder()
+//                    .bookId(ID)
+//                    .bookTitle(BOOK_TITLE)
+//                    .bookAuthor(AUTHOR_BOOK)
+//                    .isbn(ISBN)
+//                    .section(SECTION)
+//                    .yearOfIssue(YEAR_OF_ISSUE)
+//                    .publishingHouse(PUBLISHING_HOUSE)
+//                    .price(PRICE)
+//                    .stockBalances(STOCK_BALANCES)
+//                    .build();
+
+    static final Book BOOK =
+            aBook()
                     .bookId(ID)
-                    .bookTitle(BOOK_TITLE)
-                    .bookAuthor(AUTHOR_BOOK)
+                    .title(BOOK_TITLE)
+                    .author(AUTHOR_BOOK)
                     .isbn(ISBN)
                     .section(SECTION)
                     .yearOfIssue(YEAR_OF_ISSUE)
@@ -112,13 +140,14 @@ class BookServiceTest {
 
     }
 
-//    @Test
-//    public void shouldReturnBookStat() {
-//        given(bookRepository.findByBookId(ID)).willReturn(BOOKDTO);
-//        BookDTO actual = bookService.getBookById(ID);
-//        assertEquals(BOOKDTO, actual);
-//        then(bookRepository).should(only()).findByBookId(ID);
-//
-//    }
+    @Test
+    public void shouldReturnBookStat() {
+        given(bookRepository.findByBookId(ID)).willReturn(BOOK);
+        BookDTO actual = bookService.getBookById(ID);
+        Book actualEntity = TRANSFORMER.bookDTOToBook(actual);
+        assertEquals(BOOK, actualEntity);
+        then(bookRepository).should(only()).findByBookId(ID);
+
+    }
 
 }
