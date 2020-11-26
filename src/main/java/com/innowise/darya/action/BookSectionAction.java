@@ -55,7 +55,7 @@ public class BookSectionAction {
 //       request = ServletActionContext.getRequest();
 //        sectionId = request.getParameter("id");
 //
-        sectionBooks = bookService.getBySection(Long.parseLong(sectionId));
+        sectionBooks = bookService.getBooksBySection(Long.parseLong(sectionId));
         Gson gson = new Gson();
         books = gson.toJson(sectionBooks);
         //  return "UPDATE";

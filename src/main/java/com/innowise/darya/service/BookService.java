@@ -23,7 +23,7 @@ public interface BookService {
     void deleteBook(long bookId);
 
 //    List<BookDTO> getAllBooksBySection(long id);
-        List<BookDTO> getBySection(long id);
+        List<BookDTO> getBooksBySection(long id);
 
 }
 

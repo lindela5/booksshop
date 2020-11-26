@@ -49,17 +49,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookDTO getBookById(long id) {
-        Optional<Book> bookOptional = Optional.ofNullable(bookRepository.findByBookId(id));
-        if (!bookOptional.isPresent()) {
-            return null;
-        }
-        Book book = bookOptional.get();
-        if (book == null) {
+        Optional<Book> book = Optional.ofNullable(bookRepository.findByBookId(id));
+        if (!book.isPresent()) {
             log.error("There is no such book");
             throw new ThereIsNoSuchException("book");
         }
-
-        BookDTO bookDTO = BookDTOTransformer.BOOK_DTO_TRANSFORMER.bookToBookDTO(book);
+        BookDTO bookDTO = BookDTOTransformer.BOOK_DTO_TRANSFORMER.bookToBookDTO(book.get());
         return bookDTO;
     }
 
@@ -127,7 +122,7 @@ public class BookServiceImpl implements BookService {
 //    }
 
     @Override
-    public List<BookDTO> getBySection(long id) {
+    public List<BookDTO> getBooksBySection(long id) {
         List<Book> bookList = bookRepository.findBySectionId(id);
         log.info(bookList.size()+"");
         return bookList.isEmpty() ? new ArrayList<>() : bookList.stream()

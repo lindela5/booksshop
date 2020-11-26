@@ -30,6 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.only;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 @ExtendWith(MockitoExtension.class)
         // добавим к тестовому классу расширение Mockito.
@@ -42,7 +43,9 @@ class BookServiceTest {
     //@InjectMocks //создает экземпляр класса и внедряет @Mock созданные с @Mock (или @Spy) в этот экземпляр
     BookService bookService;
 
-    static final BookDTOTransformer TRANSFORMER = Mappers.getMapper(BookDTOTransformer.class);
+
+
+
     private static final Long WRONG_ID = 16L;
     static final Long ID = 2L;
     static final String BOOK_TITLE = "Good Omens";
@@ -59,22 +62,22 @@ class BookServiceTest {
                     .authorId(AUTHOR2_ID)
                     .build();
 
-//    static final AuthorDTO AUTHOR1_DTO =
-//            AuthorDTO.builder()
-//                    .authorId(AUTHOR1_ID)
-//                    .build();
-//    static final AuthorDTO AUTHOR2_DTO =
-//            AuthorDTO.builder()
-//                    .authorId(AUTHOR2_ID)
-//                    .build();
+    static final AuthorDTO AUTHOR1_DTO =
+            AuthorDTO.builder()
+                    .authorId(AUTHOR1_ID)
+                    .build();
+    static final AuthorDTO AUTHOR2_DTO =
+            AuthorDTO.builder()
+                    .authorId(AUTHOR2_ID)
+                    .build();
 
     static final Set<Author> AUTHOR_BOOK = Set.of(
             AUTHOR1,
             AUTHOR2);
 
-//    static final Set<AuthorDTO> AUTHOR_BOOK_DTO = Set.of(
-//            AUTHOR1_DTO,
-//            AUTHOR2_DTO);
+    static final Set<AuthorDTO> AUTHOR_BOOK_DTO = Set.of(
+            AUTHOR1_DTO,
+            AUTHOR2_DTO);
 
     static final String ISBN = "9781910281918";
 
@@ -100,18 +103,18 @@ class BookServiceTest {
 
     //@formatter=off
 
-//    static final BookDTO BOOKDTO =
-//            BookDTO.builder()
-//                    .bookId(ID)
-//                    .bookTitle(BOOK_TITLE)
-//                    .bookAuthor(AUTHOR_BOOK)
-//                    .isbn(ISBN)
-//                    .section(SECTION)
-//                    .yearOfIssue(YEAR_OF_ISSUE)
-//                    .publishingHouse(PUBLISHING_HOUSE)
-//                    .price(PRICE)
-//                    .stockBalances(STOCK_BALANCES)
-//                    .build();
+    static final BookDTO BOOKDTO =
+            BookDTO.builder()
+                    .bookId(ID)
+                    .bookTitle(BOOK_TITLE)
+                    .bookAuthor(AUTHOR_BOOK_DTO)
+                    .isbn(ISBN)
+                    .section(SECTION)
+                    .yearOfIssue(YEAR_OF_ISSUE)
+                    .publishingHouse(PUBLISHING_HOUSE)
+                    .price(PRICE)
+                    .stockBalances(STOCK_BALANCES)
+                    .build();
 
     static final Book BOOK =
             aBook()
@@ -133,7 +136,7 @@ class BookServiceTest {
     }
 
     @Test
-    public void shouldThrowBookException() {
+    public void shouldThrowThereIsNoSuchException() {
         given(bookRepository.findByBookId(WRONG_ID)).willReturn(null);
         assertThrows(ThereIsNoSuchException.class, () -> bookService.getBookById(WRONG_ID));
         then(bookRepository).should(only()).findByBookId(WRONG_ID);
@@ -141,13 +144,12 @@ class BookServiceTest {
     }
 
     @Test
-    public void shouldReturnBookStat() {
+    public void shouldReturnBookById() {
         given(bookRepository.findByBookId(ID)).willReturn(BOOK);
         BookDTO actual = bookService.getBookById(ID);
-        Book actualEntity = TRANSFORMER.bookDTOToBook(actual);
-        assertEquals(BOOK, actualEntity);
+        assertEquals(BOOKDTO, actual);
         then(bookRepository).should(only()).findByBookId(ID);
-
+        verifyNoMoreInteractions(bookRepository);
     }
 
 }
