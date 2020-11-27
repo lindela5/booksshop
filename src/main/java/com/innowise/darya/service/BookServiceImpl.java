@@ -87,37 +87,7 @@ public class BookServiceImpl implements BookService {
         bookRepository.deleteById(String.valueOf(id));
     }
 
-//    @Override
-//    public Set<SectionBook> getBySection(String nameSection) {
-//        Set<SectionBook> sectionBooks = new HashSet<>();
-//        Set<Book> books;
-//        Set<Section> sections;
-//
-//
-//        Section section = sectionRepository.findByName(nameSection);
-//        sections = section == null ? new HashSet<>() : Set.of(section);
-//
-//        for (Section section1 : sections) {
-//            books = bookRepository.findBySection(section1);
-//
-//
-//            SectionBook sectionBook = new SectionBook(section, books);
-//            sectionBooks.add(sectionBook);
-//        }
-//        return sectionBooks;
-//    }
 
-//    @Override
-//    public List<BookDTO> getAllBooksBySection(long id) {
-//        List<BookDTO> bookDTOList = new ArrayList<>();
-//
-//        List<Book> bookList = bookRepository.findBySectionId(id);
-//
-//        for (Book book : bookList) {
-//            bookDTOList.add(BookDTOTransformer.BOOK_DTO_TRANSFORMER.bookToBookDTO(book));
-//        }
-//        return bookDTOList;
-//    }
 
     @Override
     public List<BookDTO> getBooksBySection(long id) {
