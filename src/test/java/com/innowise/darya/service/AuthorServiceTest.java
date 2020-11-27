@@ -28,14 +28,21 @@ class AuthorServiceTest {
  //   @InjectMocks //создает экземпляр класса и внедряет @Mock созданные с @Mock (или @Spy) в этот экземпляр
     AuthorService authorService;
 
-    static final AuthorDTOTransformer AUTHOR_DTO_TRANSFORMER = Mappers.getMapper(AuthorDTOTransformer.class);
     private static final Long WRONG_ID = 8L;
     static final Long ID = 6L;
     static final String FIRST_NAME = "Agatha";
     static final String LAST_NAME = "Christie";
     static final String COUNTRY = "United Kingdom";
 
+
     //@formatter=off
+    static final AuthorDTO AUTHOR_DTO =
+            AuthorDTO.builder()
+                    .authorId(ID)
+                    .authorFirstName(FIRST_NAME)
+                    .authorLastName(LAST_NAME)
+                    .authorCountry(COUNTRY)
+                    .build();
 
     static final Author AUTHOR =
             Author.builder()
@@ -52,7 +59,7 @@ class AuthorServiceTest {
     }
 
     @Test
-    public void shouldThrowAuthorException() {
+    public void shouldThrowAuthorThereIsNoSuchException() {
         given(authorRepository.findByAuthorId(WRONG_ID)).willReturn(null);
         assertThrows(ThereIsNoSuchException.class, () -> authorService.getAuthorById(WRONG_ID));
         then(authorRepository).should(only()).findByAuthorId(WRONG_ID);
@@ -61,11 +68,10 @@ class AuthorServiceTest {
 
 
     @Test
-    public void shouldReturnAuthorStat() {
+    public void shouldReturnAuthorById() {
         given(authorRepository.findByAuthorId(ID)).willReturn(AUTHOR);
         AuthorDTO actual = authorService.getAuthorById(ID);
-        Author actualEntity = AUTHOR_DTO_TRANSFORMER.authorDTOToAuthor(actual);
-        assertEquals(AUTHOR, actualEntity);
+        assertEquals(AUTHOR_DTO, actual);
         then(authorRepository).should(only()).findByAuthorId(ID);
 
     }

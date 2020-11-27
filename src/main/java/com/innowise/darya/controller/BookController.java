@@ -46,11 +46,11 @@ public class BookController {
 //    }
 
 
-    @PostMapping("/save")
-    public BookDTO saveBook(@RequestBody BookDTO bookDto) {
-        log.info("Handling save users: " + bookDto);
-        return bookService.saveBook(bookDto);
-    }
+//    @PostMapping("/save")
+//    public BookDTO saveBook(@RequestBody BookDTO bookDto) {
+//        log.info("Handling save users: " + bookDto);
+//        return bookService.saveBook(bookDto);
+//    }
 
 
     @GetMapping("/findAll")
@@ -67,7 +67,7 @@ public class BookController {
 
 
 //    @GetMapping("/getbyid")
-//    public BookDTO getBookById(@PathVariable long id) {
+//    public BookDTO getBookById(@RequestParam long id) {
 //        log.info("Handling find by id request: " + id);
 //        return bookService.getBookById(id);
 //    }

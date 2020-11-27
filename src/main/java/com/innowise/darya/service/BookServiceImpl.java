@@ -29,8 +29,6 @@ public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
 
-    @Autowired
-    SectionRepository sectionRepository;
 
     public BookServiceImpl(BookRepository bookRepository) {
         this.bookRepository = bookRepository;

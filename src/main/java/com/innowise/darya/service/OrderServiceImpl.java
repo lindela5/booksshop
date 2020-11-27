@@ -17,8 +17,11 @@ import java.util.Optional;
 @Service
 @Transactional
 public class OrderServiceImpl implements OrderService {
-    @Autowired
+
     private OrderRepository orderRepository;
+
+    public OrderServiceImpl(OrderRepository orderRepository) { this.orderRepository = orderRepository;
+    }
 
 
 //    @Override
@@ -33,12 +36,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDTO getOrderById(long id) {
-        Optional<Order> orderOptional = Optional.ofNullable(orderRepository.findByOrderId(id));
-        if (!orderOptional.isPresent()) {
-            return null;
+        Optional<Order> order = Optional.ofNullable(orderRepository.findByOrderId(id));
+        if (!order.isPresent()) {
+            throw new ThereIsNoSuchException("customer");
         }
-        Order order = orderOptional.get();
-        OrderDTO orderDTO = OrderDTOTransformer.ORDER_DTO_TRANSFORMER.orderToOrderDTO(order);
+
+        OrderDTO orderDTO = OrderDTOTransformer.ORDER_DTO_TRANSFORMER.orderToOrderDTO(order.get());
         return orderDTO;
     }
 

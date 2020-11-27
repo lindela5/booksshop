@@ -11,8 +11,12 @@ import javax.transaction.Transactional;
 @Service
 @Transactional
 public class PublishingHouseServiceImpl implements PublishingHouseService{
-    @Autowired
+
     private PublishingHouseRepository publishingHouseRepository;
+
+    public PublishingHouseServiceImpl(PublishingHouseRepository publishingHouseRepository) {
+        this.publishingHouseRepository = publishingHouseRepository;
+    }
 
 
     public PublishingHouse getPublisherStats(Long publishingHouseId) {

@@ -136,7 +136,7 @@ class BookServiceTest {
     }
 
     @Test
-    public void shouldThrowThereIsNoSuchException() {
+    public void shouldThrowBookThereIsNoSuchException() {
         given(bookRepository.findByBookId(WRONG_ID)).willReturn(null);
         assertThrows(ThereIsNoSuchException.class, () -> bookService.getBookById(WRONG_ID));
         then(bookRepository).should(only()).findByBookId(WRONG_ID);

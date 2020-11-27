@@ -11,9 +11,12 @@ import javax.transaction.Transactional;
 @Service
 @Transactional
 public class SupplierServiceImpl implements SupplierService {
-    @Autowired
+
     private SupplierRepository supplierRepository;
 
+    public SupplierServiceImpl(SupplierRepository supplierRepository) {
+        this.supplierRepository = supplierRepository;
+    }
 
 
     public Supplier getSupplierStats(Long id) {

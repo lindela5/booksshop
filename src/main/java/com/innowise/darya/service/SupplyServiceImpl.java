@@ -4,6 +4,7 @@ import com.innowise.darya.dto.BookDTO;
 import com.innowise.darya.dto.SupplyDTO;
 import com.innowise.darya.entity.Book;
 import com.innowise.darya.entity.Supply;
+import com.innowise.darya.exception.ThereIsNoSuchException;
 import com.innowise.darya.repositoty.SupplyRepository;
 import com.innowise.darya.transformer.BookDTOTransformer;
 import com.innowise.darya.transformer.SupplyDTOTransformer;
@@ -16,18 +17,21 @@ import java.util.Optional;
 @Service
 @Transactional
 public class SupplyServiceImpl implements SupplyService {
-    @Autowired
+
     private SupplyRepository supplyRepository;
+
+    public SupplyServiceImpl(SupplyRepository supplyRepository) {
+        this.supplyRepository = supplyRepository;
+    }
 
 
     @Override
     public SupplyDTO getSupplyById(long id) {
-        Optional<Supply> supplyOptional = Optional.ofNullable(supplyRepository.findBySupplyId(id));
-        if (!supplyOptional.isPresent()) {
-            return null;
+        Optional<Supply> supply = Optional.ofNullable(supplyRepository.findBySupplyId(id));
+        if (!supply.isPresent()) {
+            throw new ThereIsNoSuchException("supplier");
         }
-        Supply supply = supplyOptional.get();
-        SupplyDTO supplyDTO = SupplyDTOTransformer.SUPPLY_DTO_TRANSFORMER.supplyToSupplyDTO(supply);
+       SupplyDTO supplyDTO = SupplyDTOTransformer.SUPPLY_DTO_TRANSFORMER.supplyToSupplyDTO(supply.get());
         return supplyDTO;
     }
 
