@@ -31,9 +31,9 @@ public class BookSectionAction {
 
     //    private String jsonString;
     private List<BookDTO> book;
-    private List<BookDTO> sectionBooks;
+    private List<BookDTO> books;
     private List<SectionDTO> section;
-    private String books;
+ //  private String books;
     private String sectionId;
     HttpServletRequest request;
 
@@ -55,9 +55,9 @@ public class BookSectionAction {
 //       request = ServletActionContext.getRequest();
 //        sectionId = request.getParameter("id");
 //
-        sectionBooks = bookService.getBooksBySection(Long.parseLong(sectionId));
-        Gson gson = new Gson();
-        books = gson.toJson(sectionBooks);
+        books = bookService.getBooksBySection(Long.parseLong(sectionId));
+//        Gson gson = new Gson();
+//        books = gson.toJson(sectionBooks);
         //  return "UPDATE";
         return Action.SUCCESS;
     }

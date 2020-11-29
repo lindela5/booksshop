@@ -58,16 +58,17 @@ function myFunction(id) {
 
 
 const reloadBooks = (books) => {
-    let book = JSON.parse(books, function (key, value) {
-        if (key == 'date') return new Date(value);
-        return value;
-    });
-    if (book.length == 0) {
+    // let book = JSON.parse(books, function (key, value)
+    // {
+    //     if (key == 'date') return new Date(value);
+    //     return value;
+    // });
+    if (books.length == 0) {
         $("#results").append(`</br><h1>No such books</h1>`)
     } else {
-        for (index = 0; index < book.length; ++index) {
+        for (index = 0; index < books.length; ++index) {
 
-            console.log(book[index]);
+            console.log(books[index]);
 
         //     var author
         //     for (i = 0; i < book[index].bookAuthor.length; ++i){
@@ -76,9 +77,9 @@ const reloadBooks = (books) => {
         // }
 
             $("#results").append(`<div id="card" class="card" style="width: 18rem; float: left; height: 27rem;">
-                <img src="${book[index].picture}" class="card-img-top" style="max-width: 150px; max-height: 150px;">
-                <div class="card-body"><h5 class="card-title" style="height: 50px;">${book[index].bookTitle}</h5>
-                <p>${book[index].yearOfIssue}</p></br><p> Price: ${book[index].price} $</p></br>
+                <img src="${books[index].picture}" class="card-img-top" style="max-width: 150px; max-height: 150px;">
+                <div class="card-body"><h5 class="card-title" style="height: 50px;">${books[index].bookTitle}</h5>
+                <p>${books[index].yearOfIssue}</p></br><p> Price: ${books[index].price} $</p></br>
                 <a href="#" class="btn btn-primary">Add to cart</a></div></div>`)//(`<p>${book[index].bookTitle}</p>`)
         }
     }
