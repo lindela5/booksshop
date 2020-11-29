@@ -7,10 +7,7 @@ import org.hibernate.annotations.FetchMode;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
@@ -51,12 +48,25 @@ public class Book {
     private Integer stockBalances;
     private String picture;
 
-    @Transient
-    private Set<Long> authorIds;
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Book book = (Book) o;
+//        return Objects.equals(bookId, book.bookId) &&
+//                Objects.equals(title, book.title) &&
+//                Objects.equals(isbn, book.isbn) &&
+//                Objects.equals(section, book.section) &&
+//                Objects.equals(yearOfIssue, book.yearOfIssue) &&
+//                Objects.equals(publishingHouse, book.publishingHouse) &&
+//                Objects.equals(price, book.price) &&
+//                Objects.equals(stockBalances, book.stockBalances) &&
+//                Objects.equals(picture, book.picture);
+//    }
 
-    @PostLoad
-    private void postLoad() {
-        authorIds = author.stream().map(Author::getAuthorId).collect(Collectors.toSet());
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookId, title, isbn, section, yearOfIssue, publishingHouse, price, stockBalances, picture);
     }
 
 }
