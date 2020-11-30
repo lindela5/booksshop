@@ -8,10 +8,10 @@ import java.util.*;
 @Entity
 @Table(name = "author")
 @Data
+@EqualsAndHashCode(exclude = "books")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
 public class Author {
 
     @Id
@@ -24,19 +24,20 @@ public class Author {
     @ManyToMany(mappedBy = "author")
     private Set<Book> books = new HashSet<>();
 
+
+
 //    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Author author = (Author) o;
-//        return Objects.equals(authorId, author.authorId) &&
-//                Objects.equals(firstName, author.firstName) &&
-//                Objects.equals(lastName, author.lastName) &&
-//                Objects.equals(country, author.country);
+//    public int hashCode() {
+//        return Objects.hash(authorId, firstName, lastName, country);
 //    }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(authorId, firstName, lastName, country);
+    public String toString() {
+        return "Author{" +
+                "authorId=" + authorId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }
