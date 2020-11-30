@@ -69,9 +69,9 @@ public class BooksActionTest extends StrutsSpringTestCase {
     }
 
     public void testGetValueFromStack() throws ServletException, UnsupportedEncodingException {
-      //  request.setParameter("name", "FD");
+        //  request.setParameter("name", "FD");
         executeAction("/books.action");
-       // String name = (String) findValueAfterExecute("name");
-       // assertEquals("FD", name);
+        // String name = (String) findValueAfterExecute("name");
+        // assertEquals("FD", name);
     }
 }
