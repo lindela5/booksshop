@@ -7,7 +7,6 @@ import com.innowise.darya.repositoty.CustomerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -23,7 +22,7 @@ class CustomerServiceTest {
     @Mock //создаем заглушку (или макет)
     CustomerRepository customerRepository;
 
-   // @InjectMocks //создает экземпляр класса и внедряет @Mock созданные с @Mock (или @Spy) в этот экземпляр
+    // @InjectMocks //создает экземпляр класса и внедряет @Mock созданные с @Mock (или @Spy) в этот экземпляр
     CustomerService customerService;
 
     private static final Long WRONG_ID = 12L;

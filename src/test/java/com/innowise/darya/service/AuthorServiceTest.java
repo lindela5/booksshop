@@ -4,12 +4,9 @@ import com.innowise.darya.dto.AuthorDTO;
 import com.innowise.darya.entity.Author;
 import com.innowise.darya.exception.ThereIsNoSuchException;
 import com.innowise.darya.repositoty.AuthorRepository;
-import com.innowise.darya.transformer.AuthorDTOTransformer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mapstruct.factory.Mappers;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -25,7 +22,7 @@ class AuthorServiceTest {
     @Mock //создаем заглушку (или макет)
     AuthorRepository authorRepository;
 
- //   @InjectMocks //создает экземпляр класса и внедряет @Mock созданные с @Mock (или @Spy) в этот экземпляр
+    //   @InjectMocks //создает экземпляр класса и внедряет @Mock созданные с @Mock (или @Spy) в этот экземпляр
     AuthorService authorService;
 
     private static final Long WRONG_ID = 8L;
@@ -55,7 +52,7 @@ class AuthorServiceTest {
 
     @BeforeEach
     public void initMock() {
-        authorService = new AuthorServiceImpl (authorRepository);
+        authorService = new AuthorServiceImpl(authorRepository);
     }
 
     @Test

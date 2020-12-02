@@ -2,26 +2,12 @@ package com.innowise.darya.action;
 
 import com.innowise.darya.service.BookService;
 import com.innowise.darya.service.SectionService;
-import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionProxy;
 import org.apache.struts2.StrutsSpringTestCase;
 import org.apache.struts2.dispatcher.mapper.ActionMapping;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.internal.configuration.injection.MockInjection;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.servlet.ServletException;
 import java.io.UnsupportedEncodingException;
-import java.util.Collections;
-
-import static org.mockito.BDDMockito.given;
 
 public class BooksActionTest extends StrutsSpringTestCase {
 
@@ -68,10 +54,10 @@ public class BooksActionTest extends StrutsSpringTestCase {
         assertEquals("", output);
     }
 
-    public void testGetValueFromStack() throws ServletException, UnsupportedEncodingException {
-        //  request.setParameter("name", "FD");
-        executeAction("/books.action");
-        // String name = (String) findValueAfterExecute("name");
-        // assertEquals("FD", name);
-    }
+//    public void testGetValueFromStack() throws ServletException, UnsupportedEncodingException {
+////        request.setParameter("name", "FD");
+//        executeAction("/books.action");
+////        String name = (String) findValueAfterExecute("name");
+////        assertEquals("FD", name);
+//    }
 }

@@ -1,22 +1,13 @@
 package com.innowise.darya.action;
 
-import com.google.gson.Gson;
-import com.innowise.darya.dto.AuthorDTO;
 import com.innowise.darya.dto.BookDTO;
 import com.innowise.darya.dto.SectionDTO;
-import com.innowise.darya.service.AuthorService;
 import com.innowise.darya.service.BookService;
 import com.innowise.darya.service.SectionService;
 import com.opensymphony.xwork2.ActionSupport;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Result;
-import org.apache.struts2.interceptor.ServletRequestAware;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -63,8 +54,8 @@ public class BooksAction extends ActionSupport {// implements ServletRequestAwar
         System.out.println("books: " + sectionId);
         section = sectionService.getAllSection();
 //        request.setAttribute("section", sectionService.getAllSection());
-//       request = ServletActionContext.getRequest();
-        //sectionId = request.getParameter("sectionId");
+//        request = ServletActionContext.getRequest();
+//        sectionId = request.getParameter("sectionId");
 //
 //        bookSection = bookService.getBySection(Long.valueOf(sectionId));
         return "success";

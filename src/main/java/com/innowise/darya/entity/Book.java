@@ -1,14 +1,13 @@
 package com.innowise.darya.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "books")
@@ -16,7 +15,7 @@ import java.util.stream.Collectors;
 @EqualsAndHashCode(exclude = "author")
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder (builderMethodName = "aBook")
+@Builder(builderMethodName = "aBook")
 public class Book {
 
     @Id
@@ -34,14 +33,14 @@ public class Book {
 
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="section_id")
+    @JoinColumn(name = "section_id")
     private Section section;
 
     private Integer yearOfIssue;
 
     @NotBlank
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="publishing_house_id")
+    @JoinColumn(name = "publishing_house_id")
     private PublishingHouse publishingHouse;
 
     private BigDecimal price;
