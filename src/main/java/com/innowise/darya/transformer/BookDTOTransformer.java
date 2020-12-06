@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
-@Mapper
+@Mapper(uses = AuthorDTOTransformer.class)
 public interface BookDTOTransformer {
     BookDTOTransformer BOOK_DTO_TRANSFORMER = Mappers.getMapper(BookDTOTransformer.class);
 

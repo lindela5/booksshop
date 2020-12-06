@@ -26,6 +26,8 @@
 </div>
 
 </br>
+
+<%--!The second implementation--%>
 <%--<div class="btn-group" role="group" aria-label="Basic example">--%>
 <%--    <s:iterator value="section" var="ex">--%>
 
@@ -49,8 +51,6 @@
 <%--</div>--%>
 
 
-
-
 <%--<div class="btn-group" role="group" aria-label="Basic example">--%>
 <%--    <s:iterator value="section" var="ex">--%>
 <%--&lt;%&ndash;        <s:param name="sectionId"><s:property value="id"/></s:param>&ndash;%&gt;--%>
@@ -62,6 +62,7 @@
 
 <%--    </s:iterator>--%>
 <%--</div>--%>
+<%--!Finish--%>
 
 
 <div class="btn-group" role="group" aria-label="Basic example">
@@ -100,10 +101,6 @@
     <span><a href="mailto:lindela@mail.ru"> E-mail: bookshopM@mail.ru</a></span>
 </footer>
 </body>
-<!-- Footer -->
-<!-- Footer -->
-<%--<footer id="footerWith" class="page-footer font-small cyan darken-3">--%>
-
 
 
 </html>

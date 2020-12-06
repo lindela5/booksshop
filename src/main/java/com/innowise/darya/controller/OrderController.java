@@ -22,16 +22,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-//    @GetMapping(value = "{orderId}", produces = MediaType.APPLICATION_JSON_VALUE)
-//
-//
-//    public ResponseEntity<OrderDTO> getOrderStats(@PathVariable final Long orderId) {
-//        Order order = orderService.getOrderStats(orderId);
-//        log.info(order.toString());
-//
-//        OrderDTO orderDTO = OrderDTOTransformer.ORDER_DTO_TRANSFORMER.orderToOrderDTO(order);
-//        return ResponseEntity.ok(orderDTO);
-//    }
+
 
         @GetMapping("/getbyid/{id}")
          public OrderDTO getOrderById(@PathVariable long id) {

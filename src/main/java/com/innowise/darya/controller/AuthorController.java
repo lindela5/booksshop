@@ -24,15 +24,7 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-//    @GetMapping(value = "{authorId}", produces = MediaType.APPLICATION_JSON_VALUE)
-//
-//
-//    public ResponseEntity<AuthorDTO> getAuthorStats(@PathVariable final Long authorId) {
-//        Author author = authorService.getAuthorStats(authorId);
-//        log.info(author.toString());
-//        AuthorDTO authorDTO = AuthorDTOTransformer.AUTHOR_DTO_TRANSFORMER.authorToAuthorDTO(author);
-//        return ResponseEntity.ok(authorDTO);
-//    }
+
 
     @GetMapping("/getbyid/{id}")
     public AuthorDTO getAuthorById(@PathVariable long id){

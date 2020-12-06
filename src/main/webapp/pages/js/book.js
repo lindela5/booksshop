@@ -16,38 +16,31 @@ function myFunction(id) {
         .catch((response) => {
             console.log("error");
             console.log(response);
-
-
         });
-
 }
 
 
-
 const reloadBooks = (books) => {
-
-    if (books.length == 0) {
+    if (books.length === 0) {
         $("#results").append(`</br><h1>No such books</h1>`)
     } else {
-        for (index = 0; index < books.length; ++index) {
-
-            console.log(books[index]);
-
-        //     var author
-        //     for (i = 0; i < book[index].bookAuthor.length; ++i){
-        //         author[i] = book.bookAuthor[i].authorId
-        //     console.log(author);
-        // }
-
-            $("#results").append(`<div class="card">
-                <img src="${books[index].picture}" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">${books[index].bookTitle}</h5>
-                     <p>${books[index].yearOfIssue}</p></br>
-                     <p> Price: ${books[index].price} $</p></br>
-                     <a href="#" class="btn btn-primary">Add to cart</a>
-                </div>
-              </div>`)//(`<p>${book[index].bookTitle}</p>`)
-        }
+        $("#results").append(books.map(book => createCard(book.picture, book.bookTitle, book.bookAuthor, book.yearOfIssue, book.price)))
     }
+}
+
+const createCard = (picture, title, authors, year, price) => {
+    authors = authors.map(author => `<span>${author.authorLastName}</span>`).join(", ");
+
+    return `<div class="card">
+                <img src="${picture}" class="card-img-top" alt="picture"/>
+                <div class="card-body">
+                    <h5 class="card-title">${title}</h5>
+                    <p>
+                        <span>Author(s): ${authors}</span></br>
+                        <span>Year: ${year}</span></br>
+                        <span>Price: ${price} $</span>
+                    </p>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>`;
 }

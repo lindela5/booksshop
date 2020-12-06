@@ -20,7 +20,7 @@ import java.util.List;
 //                @Result(name = "success", location = "pages/input.jsp")
 //        } //
 //)
-public class BooksAction extends ActionSupport {// implements ServletRequestAware {
+public class BooksAction extends ActionSupport {
 
     private BookService bookService;
     private SectionService sectionService;
@@ -39,10 +39,7 @@ public class BooksAction extends ActionSupport {// implements ServletRequestAwar
 
     }
 
-//    @Override
-//    public void setServletRequest(HttpServletRequest request) {
-//        this.request = request;
-//    }
+
 
     @Override
     public String execute() {
@@ -53,27 +50,7 @@ public class BooksAction extends ActionSupport {// implements ServletRequestAwar
 
         System.out.println("books: " + sectionId);
         section = sectionService.getAllSection();
-//        request.setAttribute("section", sectionService.getAllSection());
-//        request = ServletActionContext.getRequest();
-//        sectionId = request.getParameter("sectionId");
-//
-//        bookSection = bookService.getBySection(Long.valueOf(sectionId));
         return "success";
 
     }
 }
-//    public String populate() throws Exception {
-//
-//      List<BookDTO> book = bookService.getAllBooks();
-//
-//        return SUCCESS;
-//    }
-
-//    public String getJsonString() {
-//        return jsonString;
-//    }
-//
-//    public void setJsonString(String jsonString) {
-//        this.jsonString = jsonString;
-//    }
-//}

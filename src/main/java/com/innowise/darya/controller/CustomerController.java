@@ -26,14 +26,7 @@ public class CustomerController {
     public CustomerController( CustomerService customerService) {
         this.customerService = customerService;
     }
-//    @GetMapping(value = "{customerId}", produces = MediaType.APPLICATION_JSON_VALUE)
 
-
-//    public ResponseEntity<CustomerDTO> getCustomerStats(@PathVariable final Long customerId) {
-//        Customer customer = customerService.getCustomerStats(customerId);
-//        CustomerDTO customerDTO = CustomerDTOTransformer.CUSTOMER_DTO_TRANSFORMER.customerToCustomerDTO(customer);
-//        return ResponseEntity.ok(customerDTO);
-//    }
 
     @GetMapping("/getbyid/{id}")
     public CustomerDTO getCustomerStats(@PathVariable long id) {

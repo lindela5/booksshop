@@ -24,15 +24,6 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
-//    @Override
-//    public Order getOrderStats(Long orderId) {
-//
-//        Order order = orderRepository.findByOrderId(orderId);
-//        if (order == null) {
-//            throw new ThereIsNoSuchException("order");
-//        }
-//        return order;
-//    }
 
     @Override
     public OrderDTO getOrderById(long id) {

@@ -7,7 +7,6 @@ import com.innowise.darya.entity.Order;
 
 public interface OrderService {
 
-   // Order getOrderStats(Long orderId);
 
     OrderDTO getOrderById(long id);
 

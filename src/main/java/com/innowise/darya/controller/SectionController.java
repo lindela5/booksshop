@@ -24,15 +24,7 @@ public class SectionController {
         this.sectionService = sectionService;
     }
 
-    //  @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 
-
-    //        public ResponseEntity<SectionDTO> getSectionStats(@PathVariable final Long id) {
-//            Section section = sectionService.getSectionStats(id);
-//            log.info("Название секции - "+section.getNameSection());
-//            SectionDTO sectionDTO = SectionDTOTransformer.SECTION_DTO_TRANSFORMER.sectionToSectionDTO(section);
-//            return ResponseEntity.ok(sectionDTO);
-//        }
     @GetMapping("/findAll")
     public List<SectionDTO> getAllSection() {
         return sectionService.getAllSection();

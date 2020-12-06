@@ -6,47 +6,19 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <constant name="struts.objectFactory" value="spring" />
-    <!--    <constant name="struts.convention.result.path" value="webapp/WEB-INF/content/"/>-->
+
 
     <package name="json" namespace="/" extends="json-default">
         <action name="bookSection" class="com.innowise.darya.action.BookSectionAction">
             <result type="json" />
-            <!--            <result name="UPDATE">pages/input.jsp</result>-->
         </action>
-        <!--        <action name="databaseJSON"-->
-        <!--                class="com.mkyong.common.action.DatabaseJSON">-->
-        <!--            <result type="json" >-->
-        <!--                <param name="root">databases</param>-->
-        <!--            </result>-->
-        <!--        </action>-->
+
     </package>
 
     <package name="default" namespace="/" extends="struts-default">
 
-        <action name="hello"
-                class="com.innowise.darya.action.HelloAction" >
-            <result name="success">pages/result.jsp</result>
-        </action>
-
-        <!--        <action name="userSpring"-->
-        <!--                class="com.mkyong.user.action.UserSpringAction" >-->
-        <!--            <result name="success">pages/user.jsp</result>-->
-        <!--        </action>-->
-
-
-        <action name="car" class="com.innowise.darya.action.CarAction">
-            <result name="success">pages/result.jsp</result>
-        </action>
-
-
-
         <action name="books" class="com.innowise.darya.action.BooksAction">
-            <result name="success">pages/input.jsp
-                <!--                <param name="noCache">true</param>-->
-                <!--                <param name="excludeNullProperties">true</param>-->
-                <!--                <param name="root">jsonString</param>-->
-
-            </result>
+            <result name="success">pages/input.jsp</result>
         </action>
 
     </package>

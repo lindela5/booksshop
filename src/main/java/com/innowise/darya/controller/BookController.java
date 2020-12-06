@@ -24,33 +24,6 @@ public class BookController {
         this.bookService = bookService;
     }
 
-//    @GetMapping(value = {"/", "/index"})
-//    public String index(Model model) {
-//        model.addAttribute("title", "Book");
-//        return "index";
-//    }
-//
-//    @PostMapping("filter")
-//    public String filter( @RequestParam String year, Map<String, Object> model) {
-//        Set<AuthorDTO> items = new HashSet<>();
-//
-//        if (year != null && !year.isEmpty()) {
-//            items = bookService.getAuthorByYear(year);
-//        }
-//
-//        if (!items.isEmpty()) {
-//            model.put("items", items);
-//        }
-//        model.put("title", "Books");
-//        return "index";
-//    }
-
-
-//    @PostMapping("/save")
-//    public BookDTO saveBook(@RequestBody BookDTO bookDto) {
-//        log.info("Handling save users: " + bookDto);
-//        return bookService.saveBook(bookDto);
-//    }
 
 
     @GetMapping("/findAll")
@@ -65,12 +38,6 @@ public class BookController {
         return bookService.getBookById(id);
     }
 
-
-//    @GetMapping("/getbyid")
-//    public BookDTO getBookById(@RequestParam long id) {
-//        log.info("Handling find by id request: " + id);
-//        return bookService.getBookById(id);
-//    }
 
 
     //найти всех авторов, которые издавались в этот год
@@ -94,20 +61,5 @@ public class BookController {
         return bookService.getBooksBySection(section);
     }
 
-//    @GetMapping(value = {"/", "/index"})
-//   public String index(Model model) {
-//        model.addAttribute("title", "Book");
-//        return "index";
-//    }
-//
-//    @PostMapping("filter")
-//    public String filter(@RequestParam Integer year, Map<String, Object> model) {
-//        Set<AuthorDTO> author = new HashSet<>();
-//
-//            author = bookService.getAuthorByYear(year);
-//
-//            model.put("items", author);
-//
-//        return "index";
-//    }
+
 }
