@@ -70,14 +70,14 @@
     <c:forEach items="${section}" var="section">
         <%--        <c:out value="${list}" />--%>
         <button type="submit" class="btn btn-secondary" onclick="myFunction('${section.id}')">
-                <%--            <c:out value="${section}" />--%>
-                ${section.nameSection}
+                      <%--            <c:out value="${section}" />--%>
+               ${section.nameSection}
         </button>
     </c:forEach>
 
 </div>
 
-
+</br>
 
 <div id="results">
     <s:iterator value="book" var="ex">

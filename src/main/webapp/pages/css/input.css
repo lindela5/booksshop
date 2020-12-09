@@ -3,6 +3,7 @@ html, body {
     margin: 0;
 }
 
+
 .fig {
     text-align: center;
     margin-top: 20px;
@@ -12,6 +13,14 @@ html, body {
     display: block;
     margin-left: auto;
     margin-right: auto }
+
+/*.btn-group-vertical{*/
+/*    float: left;*/
+/*}*/
+
+/*.btn {*/
+/*    float: left;*/
+/*}*/
 
 .card{
     width: 18rem;
