@@ -58,16 +58,14 @@ CREATE TABLE books (
 );
 
 
---    ALTER TABLE books
---    ADD CONSTRAINT FK_books_publishing_house_id
---    FOREIGN KEY (publishing_house_id)
---    REFERENCES publishing_house
+ALTER TABLE books
+    ADD FOREIGN KEY (publishing_house_id)
+        REFERENCES public.publishing_house(publishing_house_id) ;
 
 
--- ALTER TABLE books
---    ADD CONSTRAINT FK_books_sections_id
---    FOREIGN KEY (section_id)
---    REFERENCES sections
+ALTER TABLE books
+    ADD FOREIGN KEY (section_id)
+        REFERENCES public.sections(id) ;
 
 
 CREATE TABLE author_book(
@@ -75,14 +73,14 @@ CREATE TABLE author_book(
     author_id int
 );
 
--- ALTER TABLE     author_book
---     ADD CONSTRAINT  FK_author_books_author_id
---     FOREIGN KEY (author_id) REFERENCES author
+ALTER TABLE author_book
+    ADD FOREIGN KEY (author_id)
+        REFERENCES public.author(author_id) ;
 
 
--- ALTER TABLE  author_book
---     ADD CONSTRAINT FK_author_books_books_id
---     FOREIGN KEY (book_id) REFERENCES books
+ALTER TABLE author_book
+    ADD FOREIGN KEY (book_id)
+        REFERENCES public.books(book_id) ;
 
 
 CREATE TABLE orders (
@@ -95,9 +93,9 @@ CREATE TABLE orders (
 
 
 
--- ALTER TABLE orders
---     ADD CONSTRAINT FK_orders_customer_id
---         FOREIGN KEY (customer_id) REFERENCES customer(customer_id);
+ALTER TABLE orders
+    ADD FOREIGN KEY (customer_id)
+        REFERENCES public.customer(customer_id) ;
 
 
 CREATE TABLE book_order(
@@ -106,13 +104,14 @@ CREATE TABLE book_order(
     quantity int
 );
 
--- ALTER TABLE     book_order
---     ADD CONSTRAINT  FK_book_order_book_id
---     FOREIGN KEY (book_id) REFERENCES books
---
--- ALTER TABLE  book_order
---     ADD CONSTRAINT FK_book_order_order_id
---     FOREIGN KEY (order_id) REFERENCES orders
+ALTER TABLE book_order
+    ADD FOREIGN KEY (book_id)
+        REFERENCES public.books(book_id) ;
+
+ALTER TABLE book_order
+    ADD FOREIGN KEY (order_id)
+        REFERENCES public.orders(order_id) ;
+
 
 CREATE TABLE supply(
     supply_id         int NOT NULL,
@@ -122,9 +121,10 @@ CREATE TABLE supply(
     PRIMARY KEY (supply_id)
 );
 
--- ALTER TABLE supply
---     ADD CONSTRAINT FK_supply_supplier_id
---         FOREIGN KEY (supplier_id) REFERENCES supplier(id);
+ALTER TABLE supply
+    ADD FOREIGN KEY (supplier_id)
+        REFERENCES public.supplier(id) ;
+
 
 CREATE TABLE book_supply(
 	supply_id int,
@@ -132,13 +132,15 @@ CREATE TABLE book_supply(
     quantity int
 );
 
--- ALTER TABLE     book_supply
---     ADD CONSTRAINT  FK_book_supply_book_id
---     FOREIGN KEY (book_id) REFERENCES books
---
--- ALTER TABLE  book_supply
---     ADD CONSTRAINT FK_book_supply_supply_id
---     FOREIGN KEY (supply_id) REFERENCES supply
+ALTER TABLE book_supply
+    ADD FOREIGN KEY (book_id)
+        REFERENCES public.books(book_id) ;
+
+ALTER TABLE book_supply
+    ADD FOREIGN KEY (supply_id)
+        REFERENCES public.supply(supply_id) ;
+
+
 
 INSERT INTO author (author_id, first_name, last_name, country) VALUES
     (1, 'Mark', 'Twain', 'United States'),
@@ -210,17 +212,17 @@ INSERT INTO author_book (book_id, author_id) VALUES
     (14, 8),    (15, 9);
 
 INSERT INTO orders (order_id, customer_id, order_date, amount) VALUES
-    (1, 2, '2020-01-14 00:00:00',213),
-    (2, 1, '2020-01-25 00:00:00', 83.2),
-    (3, 3, '2020-02-29 00:00:00', 23),
-    (4, 4, '2020-07-14 00:00:00', 33.8),
-    (5, 5, '2020-03-08 00:00:00', 61.7),
-    (6, 6, '2020-08-30 00:00:00', 62.1),
-    (7, 7, '2020-09-07 00:00:00', 23),
-    (8, 7, '2020-05-19 00:00:00', 15),
-    (9, 8, '2020-05-26 00:00:00', 66.66),
-    (10, 9, '2020-06-01 00:00:00', 38.7),
-    (11, 2, '2020-04-21 00:00:00', 8);
+    (1, 2, '2020-01-14',213),
+    (2, 1, '2020-01-25', 83.2),
+    (3, 3, '2020-02-29', 23),
+    (4, 4, '2020-07-14', 33.8),
+    (5, 5, '2020-03-08', 61.7),
+    (6, 6, '2020-08-30', 62.1),
+    (7, 7, '2020-09-07', 23),
+    (8, 7, '2020-05-19', 15),
+    (9, 8, '2020-05-26', 66.66),
+    (10, 9, '2020-06-01', 38.7),
+    (11, 2, '2020-04-21', 8);
 
 INSERT INTO book_order (order_id, book_id, quantity) VALUES
     (1, 5, 1),
@@ -243,11 +245,11 @@ INSERT INTO book_order (order_id, book_id, quantity) VALUES
     (11, 15, 1);
 
 INSERT INTO supply (supply_id, supplier_id, supply_date, supplier_price) VALUES
-    (1, 1, '2019-10-15 00:00:00',129.1),
-    (2, 2,'2020-01-10 00:00:00', 108.3),
-    (3, 3,'2020-01-10 00:00:00', 450),
-    (4, 2,'2008-03-01 00:00:00', 152.3),
-    (5, 1,'2008-03-13 00:00:00', 238.8);
+    (1, 1, '2019-10-15',129.1),
+    (2, 2,'2020-01-10', 108.3),
+    (3, 3,'2020-01-10', 450),
+    (4, 2,'2008-03-01', 152.3),
+    (5, 1,'2008-03-13', 238.8);
 
 INSERT INTO book_supply (supply_id, book_id, quantity) VALUES
     (1, 1, 4),
