@@ -58,16 +58,16 @@ CREATE TABLE books (
 );
 
 
-   ALTER TABLE books
-   ADD CONSTRAINT FK_books_publishing_house_id
-   FOREIGN KEY (publishing_house_id)
-   REFERENCES publishing_house
+--    ALTER TABLE books
+--    ADD CONSTRAINT FK_books_publishing_house_id
+--    FOREIGN KEY (publishing_house_id)
+--    REFERENCES publishing_house
 
 
-ALTER TABLE books
-   ADD CONSTRAINT FK_books_sections_id
-   FOREIGN KEY (section_id)
-   REFERENCES sections
+-- ALTER TABLE books
+--    ADD CONSTRAINT FK_books_sections_id
+--    FOREIGN KEY (section_id)
+--    REFERENCES sections
 
 
 CREATE TABLE author_book(
@@ -75,14 +75,14 @@ CREATE TABLE author_book(
     author_id int
 );
 
-ALTER TABLE     author_book
-    ADD CONSTRAINT  FK_author_books_author_id
-    FOREIGN KEY (author_id) REFERENCES author
+-- ALTER TABLE     author_book
+--     ADD CONSTRAINT  FK_author_books_author_id
+--     FOREIGN KEY (author_id) REFERENCES author
 
 
-ALTER TABLE  author_book
-    ADD CONSTRAINT FK_author_books_books_id
-    FOREIGN KEY (book_id) REFERENCES books
+-- ALTER TABLE  author_book
+--     ADD CONSTRAINT FK_author_books_books_id
+--     FOREIGN KEY (book_id) REFERENCES books
 
 
 CREATE TABLE orders (
@@ -95,9 +95,9 @@ CREATE TABLE orders (
 
 
 
-ALTER TABLE orders
-    ADD CONSTRAINT FK_orders_customer_id
-        FOREIGN KEY (customer_id) REFERENCES customer(customer_id);
+-- ALTER TABLE orders
+--     ADD CONSTRAINT FK_orders_customer_id
+--         FOREIGN KEY (customer_id) REFERENCES customer(customer_id);
 
 
 CREATE TABLE book_order(
@@ -106,13 +106,13 @@ CREATE TABLE book_order(
     quantity int
 );
 
-ALTER TABLE     book_order
-    ADD CONSTRAINT  FK_book_order_book_id
-    FOREIGN KEY (book_id) REFERENCES books
-
-ALTER TABLE  book_order
-    ADD CONSTRAINT FK_book_order_order_id
-    FOREIGN KEY (order_id) REFERENCES orders
+-- ALTER TABLE     book_order
+--     ADD CONSTRAINT  FK_book_order_book_id
+--     FOREIGN KEY (book_id) REFERENCES books
+--
+-- ALTER TABLE  book_order
+--     ADD CONSTRAINT FK_book_order_order_id
+--     FOREIGN KEY (order_id) REFERENCES orders
 
 CREATE TABLE supply(
     supply_id         int NOT NULL,
@@ -122,9 +122,9 @@ CREATE TABLE supply(
     PRIMARY KEY (supply_id)
 );
 
-ALTER TABLE supply
-    ADD CONSTRAINT FK_supply_supplier_id
-        FOREIGN KEY (supplier_id) REFERENCES supplier(id);
+-- ALTER TABLE supply
+--     ADD CONSTRAINT FK_supply_supplier_id
+--         FOREIGN KEY (supplier_id) REFERENCES supplier(id);
 
 CREATE TABLE book_supply(
 	supply_id int,
@@ -132,13 +132,13 @@ CREATE TABLE book_supply(
     quantity int
 );
 
-ALTER TABLE     book_supply
-    ADD CONSTRAINT  FK_book_supply_book_id
-    FOREIGN KEY (book_id) REFERENCES books
-
-ALTER TABLE  book_supply
-    ADD CONSTRAINT FK_book_supply_supply_id
-    FOREIGN KEY (supply_id) REFERENCES supply
+-- ALTER TABLE     book_supply
+--     ADD CONSTRAINT  FK_book_supply_book_id
+--     FOREIGN KEY (book_id) REFERENCES books
+--
+-- ALTER TABLE  book_supply
+--     ADD CONSTRAINT FK_book_supply_supply_id
+--     FOREIGN KEY (supply_id) REFERENCES supply
 
 INSERT INTO author (author_id, first_name, last_name, country) VALUES
     (1, 'Mark', 'Twain', 'United States'),
