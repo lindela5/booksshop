@@ -21,6 +21,11 @@
             <result name="success">pages/input.jsp</result>
         </action>
 
+        <action name="login" class="com.innowise.darya.action.LoginAction">
+            <result name="success">pages/login.jsp</result>
+        </action>
+
+
     </package>
 
 
