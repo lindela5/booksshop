@@ -20,7 +20,9 @@
     <%--    <sj:head/>--%>
 </head>
 <body>
-
+<a href="${pageContext.request.contextPath}/books">BookShop</a>
+|
+<a href="${pageContext.request.contextPath}/login">Login</a>
 </br>
 <div class="fig"><img src="https://i.ibb.co/tzy7qSS/unnamed.png" class="img-fluid" alt="Responsive image">
 </div>
