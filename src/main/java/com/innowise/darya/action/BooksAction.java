@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -32,7 +33,6 @@ public class BooksAction extends ActionSupport {
     private String sectionId;
     HttpServletRequest request;
 
-
     public BooksAction(BookService bookService, SectionService sectionService) {
         this.bookService = bookService;
         this.sectionService = sectionService;
@@ -40,7 +40,7 @@ public class BooksAction extends ActionSupport {
     }
 
 
-
+    @PreAuthorize("hasAuthority('developers:write')")
     @Override
     public String execute() {
 

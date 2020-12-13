@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -17,13 +15,14 @@ public class Account {
     @GeneratedValue
     private Long id;
 
-    private String username, password;
+    private String username;
+    private String password;
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "status")
+    private Status status;
 
-    private boolean active;
 
-    public Account (String username, String password, boolean active) {
-        this.username = username;
-        this.password = password;
-        this.active = active;
-    }
 }

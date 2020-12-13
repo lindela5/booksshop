@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.Action;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -33,7 +34,7 @@ public class BookSectionAction {
 
     }
 
-
+    @PreAuthorize("hasAuthority('developers:write')")
     public String execute() throws Exception {
         System.out.println("booksSection: " + sectionId);
         books = bookService.getBooksBySection(Long.parseLong(sectionId));
