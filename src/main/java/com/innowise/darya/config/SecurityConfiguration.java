@@ -22,7 +22,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
@@ -37,8 +37,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home","/books","/login","/bookSection").permitAll()
-                .antMatchers("/pages/css", "/pages/js").permitAll()
+                .antMatchers("/", "/home").permitAll()
+              //  .antMatchers("/pages/css", "/pages/js").permitAll()
                 .antMatchers("/**").access("hasRole('ADMIN') or hasRole('USER')")
                 .anyRequest().authenticated()
                 .and()

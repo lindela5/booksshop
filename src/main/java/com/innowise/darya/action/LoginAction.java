@@ -45,40 +45,47 @@ public class LoginAction extends ActionSupport {
 //    }
 
 
-    @Override
-    public String execute() {
-        HttpServletRequest request = ServletActionContext.getRequest();
-        String login = (String) request.getSession().getAttribute("username");
-        System.out.println(login);
-
-
-        // Username и password действительны.
-        log.info(this.username);
-        if ("admin".equals(this.username) && "admin".equals(this.password)) {
-            HttpSession session = request.getSession();
-        return "loginSuccess";}
-        else {
-            // ** Смотреть в ApplicationResources.properties
-
-            return "loginError";
-        }
-    }
-}
-
 //    @Override
 //    public String execute() {
+//        HttpServletRequest request = ServletActionContext.getRequest();
+//        String login = (String) request.getSession().getAttribute("username");
+//        System.out.println(login);
 //
-//        //Principal principal = ServletActionContext.getRequest().getUserPrincipal();
-//        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//        // Username и password действительны.
+//        log.info(this.username);
+//        if ("admin".equals(this.username) && "admin".equals(this.password)) {
+//            HttpSession session = request.getSession();
+//        return "loginSuccess";}
+//        else {
+//            // ** Смотреть в ApplicationResources.properties
+//
+//            return "loginError";
+//        }
+//    }
+//}
+
+    @Override
+    public String execute() {
+
+        //Principal principal = ServletActionContext.getRequest().getUserPrincipal();
+        //    UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
 //        System.out.println("username: " + userDetails.getUsername());
 //        System.out.println("password: " + userDetails.getPassword());
 //        Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) userDetails.getAuthorities();
-//        for (Iterator it = authorities.iterator(); it.hasNext();) {
+//        for (Iterator it = authorities.iterator(); it.hasNext(); ) {
 //            SimpleGrantedAuthority authority = (SimpleGrantedAuthority) it.next();
 //            System.out.println("Role: " + authority.getAuthority());
 //        }
-//
-//        return SUCCESS;
-//    }
-
+        if (!SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
+            System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+            return SUCCESS;
+        } else {
+//            // ** Смотреть в ApplicationResources.properties
+            System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+            return ERROR;
+        }
+    }
+}
 
