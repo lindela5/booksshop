@@ -23,63 +23,35 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AccountConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
 
     @Autowired
-    public AccountConfiguration(@Qualifier("userDetailsServiceImpl") UserDetailsService userDetailsService) {
+    public SecurityConfiguration(@Qualifier("userDetailsServiceImpl") UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
-
-//    @Bean
-//    UserDetailsService userDetailsService(AccountRepository accountRepository){
-//        return username -> accountRepository
-//                .findByUsername(username)
-//                .map(account -> {
-//                    boolean active = account.isActive();
-//                    return new User(account.getUsername(), account.getPassword(), active,
-//                            active, active, active, AuthorityUtils.createAuthorityList("ROLE_ADMIN",
-//                            "ROLE_USER"));
-//                })
-//                .orElseThrow(
-//                        ()-> new UsernameNotFoundException(String.format("username %s not found!",
-//                               username )));
-//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/", "/home","/books","/login","/bookSection").permitAll()
+                .antMatchers("/pages/css", "/pages/js").permitAll()
+                .antMatchers("/**").access("hasRole('ADMIN') or hasRole('USER')")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .defaultSuccessUrl("/input")
+                .defaultSuccessUrl("/books")
                 .and()
                 .logout()
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout", "POST"))
-//                .invalidateHttpSession(true)
-//                .clearAuthentication(true)
-//                .deleteCookies("JSESSIONID")
-//                .logoutSuccessUrl("/login");
+
                 .permitAll();
     }
 
-//    @Bean
-//    @Override
-//    public UserDetailsService userDetailsService() {
-//        UserDetails user =
-//                User.withDefaultPasswordEncoder()
-//                        .username("user")
-//                        .password("password")
-//                        .roles("USER")
-//                        .build();
-//        return new InMemoryUserDetailsManager(user);
-//    }
 
 
     @Override

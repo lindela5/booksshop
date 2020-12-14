@@ -1,10 +1,12 @@
 package com.innowise.darya.action;
 
 
+import com.innowise.darya.entity.Account;
 import com.opensymphony.xwork2.ActionSupport;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.java.Log;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,17 +20,17 @@ import java.util.Iterator;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Log
 public class LoginAction extends ActionSupport {
 
     private static final long serialVersionUID = 7299264265184515893L;
-    private String username;
-    private String password;
+//    private Account account;
 
-//    public String username;
-//    public String password;
-//
+    public String username;
+    public String password;
+////
 //    HttpServletRequest request = ServletActionContext.getRequest();
-//
+////
 //    public String execute() {
 //        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        System.out.println("Username: " + userDetails.getUsername());
@@ -42,33 +44,41 @@ public class LoginAction extends ActionSupport {
 //        return SUCCESS;
 //    }
 
+
     @Override
     public String execute() {
-        if (this.username == null && this.password == null) {
-            return "showForm";
-        }
         HttpServletRequest request = ServletActionContext.getRequest();
+        String login = (String) request.getSession().getAttribute("username");
+        System.out.println(login);
+
 
         // Username и password действительны.
-        if ("admin".equals(this.username) && "admin123".equals(this.password)) {
+        log.info(this.username);
+        if ("admin".equals(this.username) && "admin".equals(this.password)) {
             HttpSession session = request.getSession();
-
-            // Сохранить userName в session.
-            session.setAttribute("loginedUsername", this.username);
-
-            return "loginSuccess";
-        }
-        // Username или password неправильный
+        return "loginSuccess";}
         else {
             // ** Смотреть в ApplicationResources.properties
-            String message = getText("error.login");
-
-            addActionError(message);
 
             return "loginError";
         }
     }
-
-
-
 }
+
+//    @Override
+//    public String execute() {
+//
+//        //Principal principal = ServletActionContext.getRequest().getUserPrincipal();
+//        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        System.out.println("username: " + userDetails.getUsername());
+//        System.out.println("password: " + userDetails.getPassword());
+//        Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) userDetails.getAuthorities();
+//        for (Iterator it = authorities.iterator(); it.hasNext();) {
+//            SimpleGrantedAuthority authority = (SimpleGrantedAuthority) it.next();
+//            System.out.println("Role: " + authority.getAuthority());
+//        }
+//
+//        return SUCCESS;
+//    }
+
+

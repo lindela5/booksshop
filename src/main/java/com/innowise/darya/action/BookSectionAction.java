@@ -34,7 +34,7 @@ public class BookSectionAction {
 
     }
 
-    @PreAuthorize("hasAuthority('developers:write')")
+//    @PreAuthorize("hasAuthority('developers:write')")
     public String execute() throws Exception {
         System.out.println("booksSection: " + sectionId);
         books = bookService.getBooksBySection(Long.parseLong(sectionId));

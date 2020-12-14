@@ -40,7 +40,7 @@ public class BooksAction extends ActionSupport {
     }
 
 
-    @PreAuthorize("hasAuthority('developers:write')")
+//    @PreAuthorize("hasAuthority('developers:write')")
     @Override
     public String execute() {
 
