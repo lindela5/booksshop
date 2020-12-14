@@ -158,7 +158,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Spring Security -->
+<!--&lt;!&ndash;		 Spring Security&ndash;&gt;-->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
@@ -180,7 +180,7 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>5.4.1</version>
 		</dependency>
-		<!--Spring Security-->
+<!--&lt;!&ndash;		Spring Security&ndash;&gt;-->
 
 	</dependencies>
 

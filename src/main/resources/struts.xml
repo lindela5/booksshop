@@ -29,6 +29,10 @@
         </action>
 
 
+<!--        <action name="login" class="com.innowise.darya.action.LoginAction">-->
+<!--            <result name="SUCCESS">pages/login.jsp</result>-->
+<!--        </action>-->
+
     </package>
 
 

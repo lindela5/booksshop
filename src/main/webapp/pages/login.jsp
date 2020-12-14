@@ -7,8 +7,8 @@
 <%--&lt;%&ndash;    response.setHeader("pragma", "no-cache");&ndash;%&gt;--%>
 <%--&lt;%&ndash;    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");&ndash;%&gt;--%>
 <%--&lt;%&ndash;    response.setHeader("Expires", "0");&ndash;%&gt;--%>
-<%--&lt;%&ndash;%>&ndash;%&gt;--%>
-<%--<!DOCTYPE html>--%>
+
+<%--!DOCTYPE html>--%>
 <%--<html>--%>
 <%--<head>--%>
 <%--    <title>--%>
