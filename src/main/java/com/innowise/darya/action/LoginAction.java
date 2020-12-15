@@ -80,6 +80,7 @@ public class LoginAction extends ActionSupport {
 //        }
         if (!SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
             System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+            System.out.println(username);
             return SUCCESS;
         } else {
 //            // ** Смотреть в ApplicationResources.properties
