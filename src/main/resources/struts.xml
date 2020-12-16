@@ -17,7 +17,7 @@
 
     <package name="default" namespace="/" extends="struts-default">
         <action name="login"  class="com.innowise.darya.action.LoginAction">
-            <result name="success" >pages/input.jsp</result>
+            <result name="success" >/books.action</result>
             <result name="error">pages/login.jsp</result>
         </action>
 
