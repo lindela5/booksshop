@@ -8,7 +8,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -21,6 +24,7 @@ import java.util.List;
 //                @Result(name = "success", location = "pages/input.jsp")
 //        } //
 //)
+@Log
 public class BooksAction extends ActionSupport {
 
     private BookService bookService;
@@ -30,7 +34,8 @@ public class BooksAction extends ActionSupport {
     private List<BookDTO> book;
     private List<BookDTO> bookSection;
     private List<SectionDTO> section;
-    private String sectionId;
+    //private String sectionId;
+    private String username;
     HttpServletRequest request;
 
     public BooksAction(BookService bookService, SectionService sectionService) {
@@ -40,15 +45,19 @@ public class BooksAction extends ActionSupport {
     }
 
 
-//    @PreAuthorize("hasAuthority('developers:write')")
+    //    @PreAuthorize("hasAuthority('developers:write')")
     @Override
     public String execute() {
 
 //        Gson gson = new Gson();
 //        jsonString = gson.toJson(bookService.getAllBooks());
         book = bookService.getAllBooks();
+        if (!SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
+            this.username = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+        }
+        log.info(this.username);
 
-        System.out.println("books: " + sectionId);
+        //System.out.println("books: " + sectionId);
         section = sectionService.getAllSection();
         return "success";
 
